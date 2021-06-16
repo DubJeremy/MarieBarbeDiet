@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marie Barbe Avis{% endblock %}
+
+{% block body %}
+    {{form_start(form)}}
+        {{form_widget(form)}}
+        <inputtype="submit"value="Envoyer">
+    {{form_end(form)}}
+{% endblock %}
