@@ -1,21 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Marie Barbé Inscription{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        <div role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+        {{ form_row(registrationForm.lastname, {
+            label: 'Nom'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.firstname, {
+            label: 'Prénom'
+        }) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.age, {
+            label: 'Age'
+        }) }}
+        {{ form_row(registrationForm.height, {
+            label: 'Taille'
+        }) }}
+        {{ form_row(registrationForm.weight, {
+            label: 'Poids'
+        }) }}
+        {{ form_row(registrationForm.profilPictureFile, {
+            label: 'Photo de Profil'
+        }) }}
+        <img src="{{ asset('')}}" alt="photo de votre profil">
+        {{ form_row(registrationForm.password) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'Accepter les conditions d\'utilisation'
+        }) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit">S'inscrire</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

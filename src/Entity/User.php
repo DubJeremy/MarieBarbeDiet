@@ -2,9 +2,14 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
+use App\Entity\UserCategory;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -13,6 +18,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @ORM\HasLifecycleCallbacks()
+ * @Vich\Uploadable
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -64,6 +70,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $profilPicture;
+
+    /**
+     * @Vich\UploadableField(mapping="profilPicture", fileNameProperty="profilPicture")
+     * 
+     * @var File|null
+     */
+    private $profilPictureFile;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -264,4 +277,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    /**
+     * Get the value of profilPictureFile
+     *
+     * @return  File|null
+     */ 
+    public function getProfilPictureFile()
+    {
+        return $this->profilPictureFile;
+    }
+
+    /**
+     * Set the value of profilPictureFile
+     *
+     * @param  File|null  $profilPictureFile
+     *
+     * @return  self
+     */ 
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $profilPictureFile
+     */
+    public function setProfilPictureFile(?File $profilPictureFile = null): void
+    {
+        $this->profilPictureFile = $profilPictureFile;
+
+        if (null !== $profilPictureFile) 
+        {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
 }
