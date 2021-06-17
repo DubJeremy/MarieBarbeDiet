@@ -17,6 +17,9 @@
             label: 'Prénom'
         }) }}
         {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.userCategory, {
+            label: 'Profil de patient'
+        }) }}
         {{ form_row(registrationForm.age, {
             label: 'Age'
         }) }}
@@ -27,9 +30,8 @@
             label: 'Poids'
         }) }}
         {{ form_row(registrationForm.profilPictureFile, {
-            label: 'Photo de Profil'
+            label: 'Photo de Profil',
         }) }}
-        <img src="{{ asset('')}}" alt="photo de votre profil">
         {{ form_row(registrationForm.password) }}
         {{ form_row(registrationForm.agreeTerms, {
             label: 'Accepter les conditions d\'utilisation'
