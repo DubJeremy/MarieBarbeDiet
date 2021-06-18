@@ -27,7 +27,7 @@ class DashboardController extends AbstractDashboardController
 
         return $this->redirect($routeBuilder->setController(UserCrudController::class)->generateUrl());
 
-        if ('jane' === $this->getUser()->getUsername()) {
+        if ('jane' === $this->getUser()->getEmail()) {
             return $this->redirect('...');
         }
 

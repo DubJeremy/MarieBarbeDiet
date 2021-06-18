@@ -1,0 +1,41 @@
+class ProfessionnelsController extends AbstractController
+{
+    /
+     * @Route("/professionnels", name="professionnels")
+     */
+    public function show(ProfessionnelsRepository $repository): Response
+    {
+        $professionnels = $repository->findAll();
+
+        return $this->render('professionnels/index.html.twig', [
+            'professionnels' => $professionnels,
+        ]);
+    }
+
+    /
+     * @Route("/professionnels/{id<\d+>}" , name="app_professionnel_find")
+     *
+     * @param mixed $id
+     */
+    public function find(ProfessionnelsRepository $repository, $id): Response
+    {
+        $professionnel = $repository->find($id);
+
+        return $this->render('professionnels/one.html.twig', [
+            'professionnel' => $professionnel,
+        ]);
+    }
+}
+
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+ 
+<div class="accueilbox">
+
+<h1>PROFIL de {{professionnel.name}}</h1>
+
+<h2>Votre email : {{professionnel.numberPhone}} </h2>
+<h2>Votre Nom : {{professionnel.firstName}} </h2>
+</div>
+ {% endblock %}

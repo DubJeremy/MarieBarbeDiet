@@ -79,19 +79,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profilPictureFile;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $age;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $height;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $weight;
+
+    public function __toString()
+    {
+        return $this->email;
+    }
 
     public function getId(): ?int
     {
@@ -242,41 +247,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAge(): ?int
-    {
-        return $this->age;
-    }
-
-    public function setAge(?int $age): self
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
-    public function getHeight(): ?int
-    {
-        return $this->height;
-    }
-
-    public function setHeight(int $height): self
-    {
-        $this->height = $height;
-
-        return $this;
-    }
-
-    public function getWeight(): ?int
-    {
-        return $this->weight;
-    }
-
-    public function setWeight(int $weight): self
-    {
-        $this->weight = $weight;
-
-        return $this;
-    }
+   
 
     /**
      * Get the value of profilPictureFile
@@ -309,4 +280,64 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
     }
 
+
+    /**
+     * Get the value of age
+     */ 
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * Set the value of age
+     *
+     * @return  self
+     */ 
+    public function setAge($age)
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of height
+     */ 
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set the value of height
+     *
+     * @return  self
+     */ 
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of weight
+     */ 
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * Set the value of weight
+     *
+     * @return  self
+     */ 
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
 }
