@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\PostRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PostRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @Vich\Uploadable
  */
 class Post
 {
@@ -16,6 +19,8 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\Entity(repositoryClass=PostRepository::class)
+    *@ORM\HasLifecycleCallbacks()
      */
     private $id;
 
@@ -35,9 +40,22 @@ class Post
     private $picture;
 
     /**
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
+     * 
+     * @var File|null
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
      * @ORM\Column(type="datetime")
      */
-    private $cretedAt;
+    private $createdAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=UserCategory::class)
@@ -90,16 +108,49 @@ class Post
         return $this;
     }
 
-    public function getCretedAt(): ?\DateTimeInterface
+    /**
+     * Get the value of pictureFile
+     *
+     * @return  File|null
+     */ 
+    public function getPictureFile(): ?File
     {
-        return $this->cretedAt;
+        return $this->pictureFile;
     }
 
-    public function setCretedAt(\DateTimeInterface $cretedAt): self
+    /**
+     *
+     * @param  File|null  $pictureFile
+     * 
+     */
+    public function setPictureFile(?File $pictureFile = null): void
     {
-        $this->cretedAt = $cretedAt;
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) 
+        {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->creteadAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -122,6 +173,30 @@ class Post
     public function removeUserCategory(UserCategory $userCategory): self
     {
         $this->userCategory->removeElement($userCategory);
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updated
+     *
+     * @return  \DateTime
+     */ 
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set the value of updated
+     *
+     * @param  \DateTime  $updated
+     *
+     * @return  self
+     */ 
+    public function setUpdated(\DateTime $updated)
+    {
+        $this->updated = $updated;
 
         return $this;
     }

@@ -3,13 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UserCrudController extends AbstractCrudController
 {
@@ -18,24 +19,39 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle(Crud::PAGE_INDEX, 'Patients');
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            ImageField::new('profilPicture')
+                ImageField::new('profilPicture')
                 ->setBasePath($this->getParameter("app.path.product_images"))
                 ->onlyOnIndex()
-            ,
-            TextareaField::new('profilPictureFile', "profilPicture")
+                ->setLabel('Photo de profil')
+                ,
+                TextareaField::new('profilPictureFile', "profilPicture")
                 ->setFormType(VichImageType::class)
                 ->hideOnIndex()
-                ->setFormTypeOption('allow_delete',false),
-            TextField::new('fullName'),
-            TextField::new('email'),
-            AssociationField::new('userCategory')->hideOnForm(),
-            DateField::new('age'),
-            TextField::new('height'),
-            TextField::new('weight'),
-            DateField::new('joinedOn')->hideOnForm(),
+                ->setLabel('Photo de profil')
+                ->setFormTypeOption('allow_delete',true),
+                TextField::new('fullName')->hideOnForm()
+                ->setLabel('Prénom Nom'),
+                TextField::new('firstname')->hideOnIndex(),
+                TextField::new('lastname')->hideOnIndex(),
+                TextField::new('email'),
+                AssociationField::new('userCategory')->hideOnForm()
+                ->setLabel('Catégorie'),
+                DateField::new('age'),
+                TextField::new('calculAge')->hideOnForm(),
+                TextField::new('height')
+                ->setLabel('Taille'),
+                TextField::new('weight')
+                ->setLabel('Poids'),
+                DateField::new('joinedOn')->hideOnForm(),
         ];
     }
 

@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\RecipeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\RecipeRepository;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
+ * @Vich\Uploadable
+*@ORM\HasLifecycleCallbacks()
  */
 class Recipe
 {
@@ -34,10 +38,31 @@ class Recipe
      */
     private $picture;
 
+     /**
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
+     * 
+     * @var File|null
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updated;
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * @ORM\ManyToMany(targetEntity=UserCategory::class)
@@ -103,6 +128,31 @@ class Recipe
         $this->picture = $picture;
 
         return $this;
+    }
+
+    /**
+     * Get the value of pictureFile
+     *
+     * @return  File|null
+     */ 
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     *
+     * @param  File|null  $pictureFile
+     * 
+     */
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) 
+        {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
@@ -173,6 +223,30 @@ class Recipe
     public function setIngredient(?string $ingredient): self
     {
         $this->ingredient = $ingredient;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updated
+     *
+     * @return  \DateTime
+     */ 
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set the value of updated
+     *
+     * @param  \DateTime  $updated
+     *
+     * @return  self
+     */ 
+    public function setUpdated(\DateTime $updated)
+    {
+        $this->updated = $updated;
 
         return $this;
     }

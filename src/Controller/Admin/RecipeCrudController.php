@@ -18,6 +18,7 @@ class RecipeCrudController extends AbstractCrudController
         return Recipe::class;
     }
 
+
     public function configureFields(string $pageName): iterable
     {
         return [

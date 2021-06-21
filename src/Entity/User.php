@@ -72,7 +72,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profilPicture;
 
     /**
-     * @Vich\UploadableField(mapping="profilPicture", fileNameProperty="profilPicture")
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilPicture")
      * 
      * @var File|null
      */
@@ -232,6 +232,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
     /**
     *@ORM\PrePersist
     */
@@ -341,11 +342,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getFullName()
-    {
-        return $this->getFirstName().' '.$this->getLastName();
-    }
-
+    
     /**
      * Get the value of updated
      *
@@ -355,7 +352,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->updated;
     }
-
+    
     /**
      * Set the value of updated
      *
@@ -366,7 +363,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUpdated(\DateTime $updated)
     {
         $this->updated = $updated;
-
+        
         return $this;
     }
+
+
+    public function getFullName()
+    {
+        return $this->getFirstName().' '.$this->getLastName();
+    }
+
+    // public function calculAge($age)
+    // {
+    //     $this->getAge() = $age;
+    //     $today = date("Y-m-d") ;
+    //     $diff = date_diff(date_create($age), date_create($today));
+    //     return $diff;
+    // }
+
+    // public function imc()
+    // {
+    //     $this->getWeight() = $weightUser;
+    //     $this->getHeight() = $heightUser;
+    //     $imc = $weightUser / ($heightUser * $heightUser);
+    //     return $imc;
+    // }
 }
