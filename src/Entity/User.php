@@ -79,6 +79,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profilPictureFile;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $updated;
+    
+    /**
      * @ORM\Column(type="datetime", nullable=false)
      */
     private $age;
@@ -254,21 +260,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @return  File|null
      */ 
-    public function getProfilPictureFile()
+    public function getProfilPictureFile(): ?File
     {
         return $this->profilPictureFile;
     }
 
     /**
-     * Set the value of profilPictureFile
      *
      * @param  File|null  $profilPictureFile
-     *
-     * @return  self
-     */ 
-
-    /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $profilPictureFile
+     * 
      */
     public function setProfilPictureFile(?File $profilPictureFile = null): void
     {
@@ -337,6 +337,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getFullName()
+    {
+        return $this->getFirstName().' '.$this->getLastName();
+    }
+
+    /**
+     * Get the value of updated
+     *
+     * @return  \DateTime
+     */ 
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set the value of updated
+     *
+     * @param  \DateTime  $updated
+     *
+     * @return  self
+     */ 
+    public function setUpdated(\DateTime $updated)
+    {
+        $this->updated = $updated;
 
         return $this;
     }
