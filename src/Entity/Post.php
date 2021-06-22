@@ -114,18 +114,13 @@ class Post
         return $this->pictureFile;
     }
 
-    /**
-     *
-     * @param  File|null  $pictureFile
-     * 
-     */
-    public function setPictureFile(?File $pictureFile = null): void
+    public function setPictureFile($picture = null)
     {
-        $this->pictureFile = $pictureFile;
+        $this->pictureFile = $picture;
 
-        if (null !== $pictureFile) 
+        if ($picture) 
         {
-            $this->updatedAt = new \DateTimeImmutable();
+            $this->updatedAt = new \DateTime('now');
         }
     }
 

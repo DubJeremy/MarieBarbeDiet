@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Recipe;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
@@ -29,9 +30,10 @@ class RecipeCrudController extends AbstractCrudController
                 ->onlyOnIndex()
                 ->setLabel('Photo de plat')
                 ,
-            TextareaField::new('pictureFile', "image")
+            TextareaField::new('pictureFile', "picture")
                 ->setFormType(VichImageType::class)
                 ->hideOnIndex()
+                ->setLabel('Image')
                 ->setFormTypeOption('allow_delete',true),
             AssociationField::new('userCategory'),
             TextareaField::new('recipe'),
