@@ -1,15 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Page de Profil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {% if app.user.profilPicture != null %}
+        <img src="{{asset('images/media/' ~ app.user.profilPicture)}}" alt="Photo de profil">
+    {% endif %}
+    <h3>{{ app.user.firstname }}</h3>
 
-<div class="example-wrapper">
-    <h1>Hello {{ app.user.fullname }}! ✅</h1>
+    {% for post in posts %}
+        <h3>{{post.title}}</h3>
+        <img src="{{asset('images/media/' ~ post.picture)}}" alt="{{asset('images/media/' ~ post.picture)}}">
+        <p>{{post.content}}</p>
+    {% endfor %}
 
-</div>
+    {# {% for recipe in recipes %}
+        <h3>{{recipe.title}}</h3>
+        <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="{{asset('images/media/' ~ recipe.picture)}}">
+        <p>{{recipe.content}}</p>
+    {% endfor %} #}
+
 {% endblock %}
