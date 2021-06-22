@@ -33,7 +33,7 @@ class PostCrudController extends AbstractCrudController
                 ->hideOnIndex()
                 ->setLabel('Image')
                 ->setFormTypeOption('allow_delete',true),
-            // AssociationField::new('userCategory'),
+            AssociationField::new('userCategory'),
             TextareaField::new('content'),
             DateField::new('createdAt')->hideOnForm(),
         ];

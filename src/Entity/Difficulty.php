@@ -22,6 +22,11 @@ class Difficulty
      */
     private $difficulty;
 
+    public function __toString()
+    {
+        return $this->difficulty;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -23,7 +24,15 @@ class RecipeCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextField::new('picture'),
+            ImageField::new('picture')
+                ->setBasePath($this->getParameter("app.path.product_images"))
+                ->onlyOnIndex()
+                ->setLabel('Photo de plat')
+                ,
+            TextareaField::new('pictureFile', "image")
+                ->setFormType(VichImageType::class)
+                ->hideOnIndex()
+                ->setFormTypeOption('allow_delete',true),
             AssociationField::new('userCategory'),
             TextareaField::new('recipe'),
             TextareaField::new('ingredient'),

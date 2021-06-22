@@ -12,6 +12,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
  * @Vich\Uploadable
+ * @ORM\Entity(repositoryClass=PostRepository::class)
+ *@ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -19,8 +21,6 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @ORM\Entity(repositoryClass=PostRepository::class)
-    *@ORM\HasLifecycleCallbacks()
      */
     private $id;
 
@@ -58,14 +58,10 @@ class Post
     private $createdAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=UserCategory::class)
+     * @ORM\ManyToOne(targetEntity=UserCategory::class)
+     * @ORM\JoinColumn(nullable=false)
      */
     private $userCategory;
-
-    public function __construct()
-    {
-        $this->userCategory = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -154,30 +150,6 @@ class Post
     }
 
     /**
-     * @return Collection|UserCategory[]
-     */
-    public function getUserCategory(): Collection
-    {
-        return $this->userCategory;
-    }
-
-    public function addUserCategory(UserCategory $userCategory): self
-    {
-        if (!$this->userCategory->contains($userCategory)) {
-            $this->userCategory[] = $userCategory;
-        }
-
-        return $this;
-    }
-
-    public function removeUserCategory(UserCategory $userCategory): self
-    {
-        $this->userCategory->removeElement($userCategory);
-
-        return $this;
-    }
-
-    /**
      * Get the value of updated
      *
      * @return  \DateTime
@@ -197,6 +169,18 @@ class Post
     public function setUpdated(\DateTime $updated)
     {
         $this->updated = $updated;
+
+        return $this;
+    }
+
+    public function getUserCategory(): ?UserCategory
+    {
+        return $this->userCategory;
+    }
+
+    public function setUserCategory(?UserCategory $userCategory): self
+    {
+        $this->userCategory = $userCategory;
 
         return $this;
     }

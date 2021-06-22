@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserCategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,11 @@ class UserCategory
      */
     private $userCategory;
 
+    public function __toString()
+    {
+        return $this->userCategory;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,4 +45,5 @@ class UserCategory
 
         return $this;
     }
+
 }

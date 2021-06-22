@@ -65,11 +65,6 @@ class Recipe
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity=UserCategory::class)
-     */
-    private $userCategory;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $preparationTime;
@@ -84,10 +79,11 @@ class Recipe
      */
     private $ingredient;
 
-    public function __construct()
-    {
-        $this->userCategory = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=UserCategory::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userCategory;
 
     public function getId(): ?int
     {
@@ -167,29 +163,6 @@ class Recipe
         return $this;
     }
 
-    /**
-     * @return Collection|UserCategory[]
-     */
-    public function getUserCategory(): Collection
-    {
-        return $this->userCategory;
-    }
-
-    public function addUserCategory(UserCategory $userCategory): self
-    {
-        if (!$this->userCategory->contains($userCategory)) {
-            $this->userCategory[] = $userCategory;
-        }
-
-        return $this;
-    }
-
-    public function removeUserCategory(UserCategory $userCategory): self
-    {
-        $this->userCategory->removeElement($userCategory);
-
-        return $this;
-    }
 
     public function getPreparationTime(): ?\DateTimeInterface
     {
@@ -247,6 +220,18 @@ class Recipe
     public function setUpdated(\DateTime $updated)
     {
         $this->updated = $updated;
+
+        return $this;
+    }
+
+    public function getUserCategory(): ?UserCategory
+    {
+        return $this->userCategory;
+    }
+
+    public function setUserCategory(?UserCategory $userCategory): self
+    {
+        $this->userCategory = $userCategory;
 
         return $this;
     }
