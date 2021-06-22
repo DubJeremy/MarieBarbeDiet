@@ -11,7 +11,7 @@
                 <a href="{{path("app_home_index")}}">Acceuil</a>
             </li>
             <li>
-                <a href="#">Contact <i class="fas fa-search"></i></a>
+                <a href="#">Contact</a>
             </li>
             <li>
                 <a href="{{path("app_registration_register")}}">Inscription</a> / <a href="{{path("app_security_login")}}">Connexion</a>
@@ -22,18 +22,23 @@
 {% else %}
     <header>
     <nav>
+        <img src="{{asset('images/MarieBarbé.png')}}" alt="Logo Marie Barbé">
+        <div>
+            <p>Diététicienne,</p>
+            <p>Nutritionniste.</p>
+        </div>
         <ul>
             <li>
                 <a href="{{path("app_home_index")}}">Home</a>
             </li>
             <li>
-                <a href="#">Contact <i class="fas fa-search"></i></a>
+                <a href="#">Contact</i></a>
             </li>
             <li>
-                <a href="#"><i class="far fa-user-circle"></i></a>
+                <a href="{{path("app_user_profil",{'id' : app.user.id})}}"><i class="far fa-user-circle"></i></a>
             </li>
             <li>
-                <a href="{{path("app_security_logout")}}">Déconnexion</a>
+                <a href="{{path("app_logout")}}">Déconnexion</a>
             </li>
         </ul>
     </nav>

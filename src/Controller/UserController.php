@@ -17,4 +17,14 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+
+    /**
+     * @Route("/profil/{id}", name="app_user_profil", requirements={"id"="\d+"})
+     */
+    public function profil(): Response
+    {
+        return $this->render('user/profil.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
 }

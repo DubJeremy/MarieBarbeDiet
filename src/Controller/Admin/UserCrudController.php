@@ -8,6 +8,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -29,32 +30,33 @@ class UserCrudController extends AbstractCrudController
     {
         return [
                 ImageField::new('profilPicture')
-                ->setBasePath($this->getParameter("app.path.product_images"))
-                ->onlyOnIndex()
-                ->setLabel('Photo de profil')
-                ,
+                    ->setBasePath($this->getParameter("app.path.product_images"))
+                    ->onlyOnIndex()
+                    ->setLabel('Photo de profil'),
                 TextareaField::new('profilPictureFile', "profilPicture")
-                ->setFormType(VichImageType::class)
-                ->hideOnIndex()
-                ->setLabel('Photo de profil')
-                ->setFormTypeOption('allow_delete',true),
-                TextField::new('fullName')->hideOnForm()
-                ->setLabel('Prénom Nom'),
+                    ->setFormType(VichImageType::class)
+                    ->hideOnIndex()
+                    ->setLabel('Photo de profil')
+                    ->setFormTypeOption('allow_delete',true),
+                TextField::new('fullName')
+                    ->hideOnForm()
+                    ->setLabel('Prénom Nom'),
                 TextField::new('firstname')->hideOnIndex(),
                 TextField::new('lastname')->hideOnIndex(),
                 TextField::new('email'),
                 AssociationField::new('userCategory')->hideOnForm()
-                ->setLabel('Catégorie'),
-                TextField::new('calculAge')
+                    ->setLabel('Catégorie'),
+                DateTimeField::new('calculAge')
                     ->hideOnForm()
                     ->setLabel('Age'),
                 DateField::new('age')
                     ->setLabel('Date de Naissance'),
                 TextField::new('height')
-                ->setLabel('Taille'),
+                    ->setLabel('Taille'),
                 TextField::new('weight')
-                ->setLabel('Poids'),
-                DateField::new('joinedOn')->hideOnForm(),
+                    ->setLabel('Poids'),
+                DateField::new('joinedOn')
+                    ->hideOnForm(),
         ];
     }
 
