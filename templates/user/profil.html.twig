@@ -14,10 +14,10 @@
         <p>{{post.content}}</p>
     {% endfor %}
 
-    {# {% for recipe in recipes %}
+    {% for recipe in recipes %}
         <h3>{{recipe.title}}</h3>
         <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="{{asset('images/media/' ~ recipe.picture)}}">
-        <p>{{recipe.content}}</p>
-    {% endfor %} #}
+        <p>{{recipe.recipe}}</p>
+    {% endfor %}
 
 {% endblock %}
