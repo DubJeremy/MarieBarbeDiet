@@ -30,10 +30,10 @@ class UserCrudController extends AbstractCrudController
     {
         return [
                 ImageField::new('profilPicture')
-                    ->setBasePath($this->getParameter("app.path.product_images"))
+                    ->setBasePath('images/media/')
                     ->onlyOnIndex()
                     ->setLabel('Photo de profil'),
-                TextareaField::new('profilPictureFile', "profilPicture")
+                TextField::new('profilPictureFile')
                     ->setFormType(VichImageType::class)
                     ->hideOnIndex()
                     ->setLabel('Photo de profil')

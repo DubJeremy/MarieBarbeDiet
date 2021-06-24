@@ -26,11 +26,11 @@ class RecipeCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             ImageField::new('picture')
-                ->setBasePath($this->getParameter("app.path.product_images"))
+                ->setBasePath($this->getParameter('images/media/'))
                 ->onlyOnIndex()
                 ->setLabel('Photo de plat')
                 ,
-            TextareaField::new('pictureFile', "picture")
+            TextField::new('pictureFile', "picture")
                 ->setFormType(VichImageType::class)
                 ->hideOnIndex()
                 ->setLabel('Image')

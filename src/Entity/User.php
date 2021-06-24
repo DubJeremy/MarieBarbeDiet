@@ -74,7 +74,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @Vich\UploadableField(mapping="picture", fileNameProperty="profilPicture")
-     * 
      * @var File|null
      */
     private $profilPictureFile;
@@ -258,30 +257,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-   
-
-    /**
-     * Get the value of profilPictureFile
-     *
-     * @return  File|null
-     */ 
     public function getProfilPictureFile(): ?File
     {
         return $this->profilPictureFile;
     }
 
-    /**
-     *
-     * @param  File|null  $profilPictureFile
-     * 
-     */
-    public function setProfilPictureFile(?File $profilPictureFile = null): void
-    {
-        $this->profilPictureFile = $profilPictureFile;
 
-        if (null !== $profilPictureFile) 
+    public function setProfilPictureFile(File $profilPicture = null)
+    {
+        $this->profilPictureFile = $profilPicture;
+
+        if ($profilPicture) 
         {
-            $this->updatedAt = new \DateTimeImmutable();
+            $this->updatedAt = new \DateTimeImmutable('now');
         }
     }
 

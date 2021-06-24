@@ -24,7 +24,7 @@ class PostCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             ImageField::new('picture')
-                ->setBasePath($this->getParameter("app.path.product_images"))
+                ->setBasePath($this->getParameter('images/media/'))
                 ->onlyOnIndex()
                 ->setLabel('Photo de plat')
                 ,
