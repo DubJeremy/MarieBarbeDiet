@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Review;
+use App\Form\ReviewType;
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,22 +17,12 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="app_home_index")
      */
-    public function index(): Response
-    {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
-
-     /**
-     * @Route("/", name="app_home_review")
-     */
-    public function review(ReviewRepository $reviewRepository): Response
+    public function index(ReviewRepository $reviewRepository): Response
     {
         $reviews = $reviewRepository->findAll();
 
         return $this->render('home/index.html.twig', [
-            'reviews' => $reviews,
+            'reviews' => $reviews ,
         ]);
     }
 
@@ -55,7 +46,7 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home_index');
         }
         return $this->render('review/create.html.twig', [
-        'form'=>$form->createView(),
+        'reviewForm'=>$form->createView(),
         ]);
     }
 }

@@ -42,9 +42,9 @@ class RegistrationFormType extends AbstractType
             ->add('profilPictureFile', VichFileType::class, [
                 'required' => false,
                 'allow_delete' => true,
-                'delete_label' => 'Remove Photo',
+                'delete_label' => 'Supprimer Photo',
                 'download_uri' => true,
-                'download_label' => 'Download Photo',
+                'download_label' => 'Choisir une Photo',
                 'asset_helper' => true,
             ])
             ->add('agreeTerms', CheckboxType::class, [

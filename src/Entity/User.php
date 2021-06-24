@@ -91,12 +91,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $updated;
 
-    /** 
-     * @ORM\Column(type="integer") 
-     * @var int|null 
-     */ 
-    private  $imageSize ;
-    
     /**
      * @ORM\Column(type="datetime", nullable=false)
      */
@@ -284,16 +278,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         {
             $this->updatedAt = new \DateTimeImmutable('now');
         }
-    }
-
-    public function setImageSize(?int $imageSize): void
-    {
-        $this->imageSize = $imageSize;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
     }
 
     /**

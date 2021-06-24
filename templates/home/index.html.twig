@@ -8,7 +8,9 @@
             <h3>{{ review.title }}</h3>
             <p>{{ review.content }}</p>
             <h4>{{ review.author }}</h4>
-        </div> #}
+        </div>
     {% endfor %}
-    <a href="app_home_createReview">Laisser un avis</a>
+    {% if app.user %}
+        <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
+    {% endif %}
 {% endblock %}
