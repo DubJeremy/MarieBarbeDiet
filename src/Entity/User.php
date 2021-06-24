@@ -14,12 +14,15 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
+ * @Assert\EnableAutoMapping()
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -73,8 +76,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profilPicture;
 
     /**
-     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilPicture")
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilPicture", size="imageSize")
      * @var File|null
+     * 
+     * @Assert\Image(
+     *     maxPixels = 1920,
+     * )
      */
     private $profilPictureFile;
 
@@ -83,6 +90,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var \DateTime
      */
     private $updated;
+
+    /** 
+     * @ORM\Column(type="integer") 
+     * @var int|null 
+     */ 
+    private  $imageSize ;
     
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -263,7 +276,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    public function setProfilPictureFile(File $profilPicture = null)
+    public function setProfilPictureFile(?File $profilPicture = null)
     {
         $this->profilPictureFile = $profilPicture;
 
@@ -273,6 +286,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
     }
 
+    public function setImageSize(?int $imageSize): void
+    {
+        $this->imageSize = $imageSize;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
 
     /**
      * Get the value of age

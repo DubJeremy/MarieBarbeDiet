@@ -43,6 +43,9 @@ class Post
      * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
      * 
      * @var File|null
+     * @Assert\Image(
+     * maxPixels = 1920,
+     * )
      */
     private $pictureFile;
 

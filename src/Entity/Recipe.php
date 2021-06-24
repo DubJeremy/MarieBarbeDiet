@@ -48,6 +48,9 @@ class Recipe
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
+     * @Assert\Image(
+     * maxPixels = 1920,
+     * )
      */
     private $updated;
 
