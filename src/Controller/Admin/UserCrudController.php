@@ -29,11 +29,11 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-                ImageField::new('profilPicture')
+                ImageField::new('profilePicture')
                     ->setBasePath('images/media/')
                     ->onlyOnIndex()
                     ->setLabel('Photo de profil'),
-                TextField::new('profilPictureFile')
+                TextField::new('profilePictureFile')
                     ->setFormType(VichImageType::class)
                     ->hideOnIndex()
                     ->setLabel('Photo de profil')

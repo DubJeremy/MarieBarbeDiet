@@ -13,19 +13,19 @@ class UserController extends AbstractController
 {
 
     /**
-     * @Route("/profil/{id}", name="app_user_profil", requirements={"id"="\d+"})
+     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
      */
-    public function profil(UserRepository $repository ): Response
+    public function profile(UserRepository $repository ): Response
     {
         $user = $repository->findAll();
 
-        return $this->render('user/profil.html.twig', [
+        return $this->render('user/profile.html.twig', [
             'user' => $user,
         ]);
     }
 
     /**
-     * @Route("/profil/{id}", name="app_user_profil", requirements={"id"="\d+"})
+     * @Route("/profile/{id}", name="app_user_profil", requirements={"id"="\d+"})
      */
     public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
     {

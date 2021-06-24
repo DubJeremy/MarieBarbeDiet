@@ -8,21 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints\EnableAutoMapping;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
- * @Assert\EnableAutoMapping()
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -73,17 +73,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $profilPicture;
+    private $profilePicture;
 
     /**
-     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilPicture", size="imageSize")
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilePicture", size="imageSize")
      * @var File|null
-     * 
      * @Assert\Image(
      *     maxPixels = 1920,
      * )
      */
-    private $profilPictureFile;
+    private $profilePictureFile;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -252,29 +251,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
-    public function getProfilPicture(): ?string
+    public function getProfilePicture(): ?string
     {
-        return $this->profilPicture;
+        return $this->profilePicture;
     }
 
-    public function setProfilPicture(?string $profilPicture): self
+    public function setProfilePicture(?string $profilePicture): self
     {
-        $this->profilPicture = $profilPicture;
+        $this->profilePicture = $profilePicture;
 
         return $this;
     }
 
-    public function getProfilPictureFile(): ?File
+    public function getProfilePictureFile(): ?File
     {
-        return $this->profilPictureFile;
+        return $this->profilePictureFile;
     }
 
 
-    public function setProfilPictureFile(?File $profilPicture = null)
+    public function setProfilePictureFile(?File $profilePicture = null)
     {
-        $this->profilPictureFile = $profilPicture;
+        $this->profilePictureFile = $profilePicture;
 
-        if ($profilPicture) 
+        if ($profilePicture) 
         {
             $this->updatedAt = new \DateTimeImmutable('now');
         }

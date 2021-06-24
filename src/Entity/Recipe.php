@@ -7,7 +7,10 @@ use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use PHPUnit\Framework\Assert\EnableAutoMapping;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
@@ -49,7 +52,7 @@ class Recipe
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      * @Assert\Image(
-     * maxPixels = 1920,
+     *     maxPixels = 1920,
      * )
      */
     private $updated;
