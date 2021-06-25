@@ -2,15 +2,14 @@
 
 namespace App\Entity;
 
-use PHPUnit\Framework\Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use PHPUnit\Framework\Assert\EnableAutoMapping;
+use Symfony\Component\Validator\Constraints\EnableAutoMapping;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
@@ -47,7 +46,7 @@ class Post
      * 
      * @var File|null
      * @Assert\Image(
-     *     maxPixels = 1920,
+     * maxPixels = 1920,
      * )
      */
     private $pictureFile;

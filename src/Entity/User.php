@@ -351,10 +351,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
     
     /**
-     * Set the value of updated
-     *
      * @param  \DateTime  $updated
-     *
      * @return  self
      */ 
     public function setUpdated(\DateTime $updated)

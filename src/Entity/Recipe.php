@@ -10,7 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
-use PHPUnit\Framework\Assert\EnableAutoMapping;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\EnableAutoMapping;
 
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)

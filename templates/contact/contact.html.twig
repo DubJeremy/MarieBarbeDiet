@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez Marie B.{% endblock %}
+
+{% block body %}
+    <section>
+    <h1>Contactez Marie</h1>
+        {{form_start(formContact)}}
+            {% for message in app.flashes('success') %}
+                {{ message }}
+            {% endfor %}
+            {{form_errors(formContact)}}
+
+            
+            {{form_row(formContact.name, {
+            label: 'Nom'
+        }) }}
+
+            {{form_row(formContact.email)}}
+            
+            {{form_row(formContact.message)}}
+
+            {{form_row(formContact.Envoyer)}}
+        {{form_end(formContact)}}
+    </section>
+{% endblock %}
