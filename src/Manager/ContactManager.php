@@ -25,11 +25,8 @@ class ContactManager
      */
     protected $messageService;
 
-    public function __construct(
-        EntityManagerInterface $em,
-        MessageService $messageService,
-        EventDispatcherInterface $eventDisptacher
-    )
+    public function __construct(EntityManagerInterface $em,
+        MessageService $messageService, EventDispatcherInterface $eventDisptacher)
     {
         $this->em = $em;
         $this->messageService = $messageService;
@@ -48,7 +45,7 @@ class ContactManager
             $event = new ContactEvent($contact);
             $this->eventDisptacher->dispatch($event);
 
-            $this->messageService->addSuccess('Votre message à bien été  valider .');
+            $this->messageService->addSuccess('Votre message à bien été envoyer.');
         }
     }
 }

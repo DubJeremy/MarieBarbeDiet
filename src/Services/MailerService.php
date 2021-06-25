@@ -59,6 +59,5 @@ class MailerService
             print $e->getMessage()."\n";
             throw $e;
         }
-
     }
 }

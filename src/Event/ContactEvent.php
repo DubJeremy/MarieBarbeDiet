@@ -7,7 +7,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class ContactEvent extends Event
 {
-    const TEMPLATE_CONTACT = "contact/contact.html.twig";
+    const TEMPLATE_CONTACT = "email/contact.html.twig";
 
     /**
      * @param Contact $contact
