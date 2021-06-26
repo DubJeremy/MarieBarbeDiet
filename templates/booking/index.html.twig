@@ -6,10 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" integrity="sha256-u40zn9KeZYpMjgYaxWJccb4HnP0i8XI17xkXrEklevE=" crossorigin="anonymous">
-        <title>Réservation</title>
+        <title>Rendez-vous</title>
     </head>
     <body>
         {% include "common/_header.html.twig" %}
+        <h1>Rendez-vous</h1>
         <div id="calendar">
         </div>
         
@@ -29,11 +30,11 @@
                     start: 'prev, next today',
                     center: 'title',
                     end: 'dayGridMonth,timeGridWeek'
-                }
-
-                });
-                calendar.render();
-            });
+                },
+                events: {{ data|raw }}
+                })
+                calendar.render()
+            })
         </script>
         {% include "common/_footer.html.twig" %}
     </body>

@@ -40,7 +40,7 @@ class Booking
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $background_color;
+    private $backgroundColor;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -107,12 +107,12 @@ class Booking
 
     public function getBackgroundColor(): ?string
     {
-        return $this->background_color;
+        return $this->backgroundColor;
     }
 
-    public function setBackgroundColor(?string $background_color): self
+    public function setBackgroundColor(?string $backgroundColor): self
     {
-        $this->background_color = $background_color;
+        $this->backgroundColor = $backgroundColor;
 
         return $this;
     }
