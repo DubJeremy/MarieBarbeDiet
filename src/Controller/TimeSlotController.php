@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Booking;
-use App\Form\BookingType;
-use App\Repository\BookingRepository;
+use App\Entity\TimeSlot;
+use App\Form\TimeSlotType;
+use App\Repository\TimeSlotRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -12,12 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class BookingController extends AbstractController
+class TimeSlotController extends AbstractController
 {
     /**
      * @Route("/booking", name="app_booking_index")
      */
-    public function index(BookingRepository $calendar): Response
+    public function index(TimeSlotRepository $calendar): Response
     {
         $events = $calendar->findAll();
 
@@ -46,13 +46,13 @@ class BookingController extends AbstractController
     public function createTimeSlot(EntityManagerInterface $em, Security 
     $security, Request $request)
     {
-        $booking = new Booking();
-        $form = $this->createForm(BookingType::class, $booking);
+        $timeSlot = new TimeSlot();
+        $form = $this->createForm(TimeSlotType::class, $timeSlot);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $em->persist($booking);
+            $em->persist($timeSlot);
             $em->flush();
             $this->addFlash('success', 'Créneaux horaire est créé');
             return $this->redirectToRoute('app_booking_index');

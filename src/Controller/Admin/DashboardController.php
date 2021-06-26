@@ -6,9 +6,10 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Entity\Recipe;
 use App\Entity\Review;
+use App\Entity\Difficulty;
 use App\Entity\UserCategory;
 use App\Controller\Admin\UserCrudController;
-use App\Entity\Difficulty;
+use App\Entity\TimeSlot;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -43,9 +44,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-bars');
-        yield MenuItem::linkToCrud('Patients', 'fas fa-angle-right', User::class);
-        yield MenuItem::linkToCrud('Posts', 'fas fa-angle-right', Post::class);
-        yield MenuItem::linkToCrud('Recettes', 'fas fa-angle-right', Recipe::class);
+        yield MenuItem::linkToCrud('Patients', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('RDV', 'far fa-calendar-alt', TimeSlot::class);
+        yield MenuItem::linkToCrud('Posts', 'far fa-sticky-note', Post::class);
+        yield MenuItem::linkToCrud('Recettes', 'fas fa-utensils', Recipe::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-angle-right', Review::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-angle-right', UserCategory::class);
         yield MenuItem::linkToCrud('Niveau de difficulté', 'fas fa-angle-right', Difficulty::class);

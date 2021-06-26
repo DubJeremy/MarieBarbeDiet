@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Booking;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\TimeSlot;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
- * @method Booking|null find($id, $lockMode = null, $lockVersion = null)
- * @method Booking|null findOneBy(array $criteria, array $orderBy = null)
- * @method Booking[]    findAll()
- * @method Booking[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TimeSlot|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TimeSlot|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TimeSlot[]    findAll()
+ * @method TimeSlot[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BookingRepository extends ServiceEntityRepository
+class TimeSlotRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Booking::class);
+        parent::__construct($registry, TimeSlot::class);
     }
 
     // /**
-    //  * @return Booking[] Returns an array of Booking objects
+    //  * @return TimeSlot[] Returns an array of TimeSlot objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class BookingRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Booking
+    public function findOneBySomeField($value): ?TimeSlot
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.exampleField = :val')
