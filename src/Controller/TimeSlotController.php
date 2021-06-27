@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TimeSlot;
 use App\Form\TimeSlotType;
+use App\Repository\BookingRepository;
 use App\Repository\TimeSlotRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,9 +18,10 @@ class TimeSlotController extends AbstractController
     /**
      * @Route("/booking", name="app_booking_index")
      */
-    public function index(TimeSlotRepository $calendar): Response
+    public function index(TimeSlotRepository $calendar, BookingRepository $booking): Response
     {
         $events = $calendar->findAll();
+        $appointments = $booking->findAll();
 
         foreach($events as $event)
         {
@@ -35,9 +37,22 @@ class TimeSlotController extends AbstractController
             ];
         }
 
-        $data = json_encode($timeslots);
+        foreach($appointments as $appointment)
+        {
+            $book[] = [
+                'id' => $appointment->getId(),
+                'start' => $appointment->getStart()->format('Y-m-d H:i:s'),
+                'end' => $appointment->getEnd()->format('Y-m-d H:i:s'),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+            ];
+        }
 
-        return $this->render('booking/index.html.twig', compact('data'));
+        $data1 = json_encode($timeslots);
+        $data2 = json_encode($book);
+
+        return $this->render('booking/index.html.twig', compact('data1', 'data2'));
     }
 
     /**

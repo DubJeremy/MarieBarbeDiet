@@ -28,6 +28,10 @@ class BookingCrudController extends AbstractCrudController
         return [
             AssociationField::new('author')
                 ->setLabel('Patient'),
+            DateTimeField::new('start')
+                ->setLabel('Début'),
+            DateTimeField::new('end')
+                ->setLabel('Fin'),
             AssociationField::new('bookingType')
                 ->setLabel('Type de réservation'),
             AssociationField::new('applicationChoice')

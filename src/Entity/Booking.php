@@ -50,6 +50,16 @@ class Booking
      */
     private $applicationChoice;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $start;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $end;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +133,30 @@ class Booking
     public function setApplicationChoice(?ApplicationChoice $applicationChoice): self
     {
         $this->applicationChoice = $applicationChoice;
+
+        return $this;
+    }
+
+    public function getStart(): ?\DateTimeInterface
+    {
+        return $this->start;
+    }
+
+    public function setStart(\DateTimeInterface $start): self
+    {
+        $this->start = $start;
+
+        return $this;
+    }
+
+    public function getEnd(): ?\DateTimeInterface
+    {
+        return $this->end;
+    }
+
+    public function setEnd(\DateTimeInterface $end): self
+    {
+        $this->end = $end;
 
         return $this;
     }
