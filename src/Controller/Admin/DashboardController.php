@@ -6,10 +6,13 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Entity\Recipe;
 use App\Entity\Review;
-use App\Entity\Difficulty;
-use App\Entity\UserCategory;
-use App\Controller\Admin\UserCrudController;
+use App\Entity\Booking;
 use App\Entity\TimeSlot;
+use App\Entity\Difficulty;
+use App\Entity\BookingType;
+use App\Entity\UserCategory;
+use App\Entity\ApplicationChoice;
+use App\Controller\Admin\UserCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -45,12 +48,15 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-bars');
         yield MenuItem::linkToCrud('Patients', 'fas fa-users', User::class);
-        yield MenuItem::linkToCrud('RDV', 'far fa-calendar-alt', TimeSlot::class);
+        yield MenuItem::linkToCrud('Disponibilités', 'far fa-calendar-minus', TimeSlot::class);
+        yield MenuItem::linkToCrud('Rendez-vous', 'far fa-calendar-alt', Booking::class);
         yield MenuItem::linkToCrud('Posts', 'far fa-sticky-note', Post::class);
         yield MenuItem::linkToCrud('Recettes', 'fas fa-utensils', Recipe::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-angle-right', Review::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-angle-right', UserCategory::class);
         yield MenuItem::linkToCrud('Niveau de difficulté', 'fas fa-angle-right', Difficulty::class);
+        yield MenuItem::linkToCrud('Type de rendez-vous', 'fas fa-angle-right', BookingType::class);
+        yield MenuItem::linkToCrud('Application Visio', 'fas fa-angle-right', ApplicationChoice::class);
         yield MenuItem::linkToRoute('Home', 'fa fa-home', "app_home_index");
     }
 }

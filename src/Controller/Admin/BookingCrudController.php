@@ -2,42 +2,44 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\TimeSlot;
+use App\Entity\Booking;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class TimeSlotCrudController extends AbstractCrudController
+class BookingCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return TimeSlot::class;
+        return Booking::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle(Crud::PAGE_INDEX, 'Créneaux de disponibilités');
+            ->setPageTitle(Crud::PAGE_INDEX, 'Rendez-vous');
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            DateTimeField::new('start')
-                ->setLabel('Début'),
-            DateTimeField::new('end')
-                ->setLabel('Fin'),
-            TextField::new('description')
-                ->setLabel('Description'),
+            AssociationField::new('author')
+                ->setLabel('Patient'),
+            AssociationField::new('bookingType')
+                ->setLabel('Type de réservation'),
+            AssociationField::new('applicationChoice')
+                ->setLabel('App visio'),
             ColorField::new('backgroundColor')
                 ->setLabel('Couleur du fond'),
             ColorField::new('borderColor')
-                ->setLabel('Couleur de la bordure'),
+                ->setLabel('Couleur de la bordure')
+                ->hideOnIndex(),
             ColorField::new('textColor')
-                ->setLabel('Couleur du texte'),
+                ->setLabel('Couleur du texte')
+                ->hideOnIndex(),
             
         ];
     }
