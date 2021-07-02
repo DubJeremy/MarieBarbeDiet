@@ -26,6 +26,7 @@ class HomeController extends AbstractController
         ]);
     }
 
+
     /**
     *@Route("/review/new",name="app_home_createReview", methods="GET|POST")
     */
@@ -48,5 +49,44 @@ class HomeController extends AbstractController
         return $this->render('review/create.html.twig', [
         'reviewForm'=>$form->createView(),
         ]);
+    }
+
+    /**
+    *@Route("/{id}/edit",name="app_home_editReview", methods="GET|POST", requirements={"id"="\d+"})
+    */
+    public function editReview(EntityManagerInterface $em, Security 
+    $security, Request $request, Review $review)
+    {
+        $form = $this->createForm(ReviewType::class, $review);
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $user = $security->getUser();
+            $review->setAuthor($user);
+            $em->flush();
+            
+            $this->addFlash('success', 'Votre avis a été modifié');
+            
+            return $this->redirectToRoute('app_home_index');
+        }
+        return $this->render('review/edit.html.twig', [
+            'reviewForm'=>$form->createView(),
+        ]);
+    }
+
+    /**
+    *@Route("/{id}/delete",name="app_home_deleteReview", methods="DELETE", requirements={"id"="\d+"})
+    */
+    public function deleteReview(Request $request,Review $review,EntityManagerInterface $em, Security $security)
+    {
+        if($this->isCsrfTokenValid('entity_delete_'.$review->getId(),
+        $request->request->get('csrf_token')))
+        {
+        $em->remove($review);
+        $em->flush();
+        }
+        return$this->redirectToRoute('app_home_index');
     }
 }

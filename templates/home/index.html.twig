@@ -7,10 +7,20 @@
         <div id="review">
             <h3>{{ review.title }}</h3>
             <p>{{ review.content }}</p>
-            <h4>{{ review.author }}</h4>
+            <h4>{{ review.author.firstname }}</h4>
         </div>
+        {% if app.user is same as(review.author) %}
+            <a href="{{path('app_home_editReview',{'id': review.id})}}">Modifier</a>
+        {% endif %}
+        
     {% endfor %}
     {% if app.user %}
-        <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
+            <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
+            <form action="{{path('app_home_delete',{'id':review.id})}}"
+            method="POST">
+                <inputtype="hidden"name="_method"value="DELETE">
+                <inputtype="hidden"name="csrf_token"value="{{csrf_token('entity_delete_'~entity.id)}}">
+                <inputtype="submit"value="Supprimer">
+            </form>
     {% endif %}
 {% endblock %}

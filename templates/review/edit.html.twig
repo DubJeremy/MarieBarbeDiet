@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marie Barbe Avis{% endblock %}
+
+{% block body %}
+    {{form_start(reviewForm)}}
+        {{ form_row(reviewForm.title, {
+            label: 'Titre'
+        }) }}
+        {{ form_row(reviewForm.content, {
+            label: 'Avis'
+        }) }}
+        <input type="submit"value="Envoyer">
+    {{form_end(reviewForm)}}
+{% endblock %}
