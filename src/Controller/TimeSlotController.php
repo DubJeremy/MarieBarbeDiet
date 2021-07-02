@@ -50,9 +50,9 @@ class TimeSlotController extends AbstractController
         }
 
         $data1 = json_encode($timeslots);
-        $data2 = json_encode($book);
+        // $data2 = json_encode($book);
 
-        return $this->render('booking/index.html.twig', compact('data1', 'data2'));
+        return $this->render('booking/index.html.twig', compact('data1'));
     }
 
     /**

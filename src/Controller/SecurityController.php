@@ -66,14 +66,16 @@ class SecurityController extends AbstractController
     /**
      * @Route("/user/{id}/delete", name="app_security_delete", requirements={"id"="\d+"})
      */
-    public function delete(User $user): Response
+    public function delete(User $user,Request $request): Response
     {
-        if($this->isCsrfTokenValid())
+
+        if($this->isCsrfTokenValid('user_delete_' . $user->getId(),$request->get('csrf_token')))
         {
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
+            session_destroy();
         }
 
         return $this->redirectToRoute('app_home_index');
