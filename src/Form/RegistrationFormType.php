@@ -26,6 +26,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('email')
+            ->add('numberPhone')
             ->add('userCategory', EntityType::class, array(
                 'class' => 'App\Entity\UserCategory',
                 'choice_label' => 'userCategory',

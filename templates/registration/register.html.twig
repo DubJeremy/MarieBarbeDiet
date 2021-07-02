@@ -16,6 +16,12 @@
         {{ form_row(registrationForm.firstname, {
             label: 'Prénom'
         }) }}
+        <div class="formphone">
+            <i class="fas fa-phone-alt"></i>
+            {{ form_row(registrationForm.numberPhone, {
+            label: ' '
+        }) }}
+        </div>
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.userCategory, {
             label: 'Profil de patient'

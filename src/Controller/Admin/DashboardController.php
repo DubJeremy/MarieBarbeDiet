@@ -57,6 +57,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Niveau de difficulté', 'fas fa-angle-right', Difficulty::class);
         yield MenuItem::linkToCrud('Type de rendez-vous', 'fas fa-angle-right', BookingType::class);
         yield MenuItem::linkToCrud('Application Visio', 'fas fa-angle-right', ApplicationChoice::class);
-        yield MenuItem::linkToRoute('Home', 'fa fa-home', "app_home_index");
+        yield MenuItem::linkToRoute('Accueil', 'fa fa-home', "app_home_index");
     }
 }

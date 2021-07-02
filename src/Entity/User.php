@@ -76,10 +76,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $profilePicture;
 
     /**
-     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilePicture", size="imageSize")
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="profilePicture")
      * @var File|null
      * @Assert\Image(
-     *     maxPixels = 1920,
+     *     maxWidth = 1920,
      * )
      */
     private $profilePictureFile;
@@ -104,6 +104,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string")
      */
     private $weight;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $numberPhone;
 
     public function __toString()
     {
@@ -383,4 +388,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     //     $imc = $weightUser / ($heightUser * $heightUser);
     //     return $imc;
     // }
+
+    public function getNumberPhone(): ?int
+    {
+        return $this->numberPhone;
+    }
+
+    public function setNumberPhone(int $numberPhone): self
+    {
+        $this->numberPhone = $numberPhone;
+
+        return $this;
+    }
 }
