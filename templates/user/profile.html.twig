@@ -7,8 +7,16 @@
         <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
     {% endif %}
     <h3>{{ app.user.firstname }}</h3>
-    <p><a href="{{path('app_security_edit',{'id': app.user.id})}}">Modifier profil</a></p>
-
+    <p>
+        <a href="{{path('app_security_edit',{'id': app.user.id})}}">Modifier profil</a>
+    </p>
+    <p>
+        <form action="{{path('app_security_delete',{'id': app.user.id})}}" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="csrf_token" value="{{csrf_token('user_delete_' ~ app.user.id)}}">
+            <input type="submit" value="Supprimer votre profil">
+        </form>
+    </p>
     {% for post in posts %}
         <h3>{{post.title}}</h3>
         <img src="{{asset('images/media/' ~ post.picture)}}" alt="{{asset('images/media/' ~ post.picture)}}">

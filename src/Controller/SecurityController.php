@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -62,9 +64,18 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/delete, name="app_security_delete",requirements={"id"="\d+"}, method="DELETE")
+     * @Route("/user/{id}/delete", name="app_security_delete", requirements={"id"="\d+"})
      */
-    public function 
+    public function delete(User $user): Response
+    {
+        if($this->isCsrfTokenValid())
+        {
 
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
+        return $this->redirectToRoute('app_home_index');
+    }
 }
