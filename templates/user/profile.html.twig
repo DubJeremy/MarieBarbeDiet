@@ -7,6 +7,7 @@
         <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
     {% endif %}
     <h3>{{ app.user.firstname }}</h3>
+    <p><a href="{{path('app_security_edit',{'id': app.user.id})}}">Modifier profil</a></p>
 
     {% for post in posts %}
         <h3>{{post.title}}</h3>

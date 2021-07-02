@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\RegistrationFormType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
@@ -36,30 +38,33 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="app_security_edit, requirements={"id"="<\d+>"})
+     * @Route("/user/{id}/edit", name="app_security_edit", requirements={"id"="\d+"})
      */
-    public function edit(Request $request, ): Response
+    public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword(
-                $passwordEncoder->encodePassword(
-                    $user,
-                    $form->get('password')->getData()
-                )
-            );
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('app_user_profile');
         }
 
-            return $this->render('user/edit.html.twig',[
-                'user'=> $user,
+        return $this->render('security/edit.html.twig', [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]);
+
+        return $this->render('common/error.html.twig', [
+            'error' => 401,
+            'message' => 'Unauthorized access',
         ]);
     }
+
+    /**
+     * @Route("/user/{id}/delete, name="app_security_delete",requirements={"id"="\d+"}, method="DELETE")
+     */
+    public function 
+
+
 }

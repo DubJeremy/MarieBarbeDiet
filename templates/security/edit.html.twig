@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marie Barbé Diet{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_row(form.lastname, {
+            label: 'Nom'
+        }) }}
+        {{ form_row(form.firstname, {
+            label: 'Prénom'
+        }) }}
+        <div class="formphone">
+            <i class="fas fa-phone-alt"></i>
+            {{ form_row(form.numberPhone, {
+            label: ' '
+        }) }}
+        </div>
+        {{ form_row(form.email) }}
+        {{ form_row(form.userCategory, {
+            label: 'Profil de patient'
+        }) }}
+        {{ form_row(form.age, {
+            label: 'Age'
+        }) }}
+        {{ form_row(form.height, {
+            label: 'Taille'
+        }) }}
+        {{ form_row(form.weight, {
+            label: 'Poids'
+        }) }}
+        {{ form_row(form.profilePictureFile, {
+            label: 'Photo de Profil',
+        }) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.agreeTerms, {
+            label: 'Accepter les conditions d\'utilisation'
+        }) }}
+
+        <button type="submit">Sauvegarder</button>
+    {{ form_end(form) }}
+{% endblock %}

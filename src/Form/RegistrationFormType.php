@@ -45,7 +45,7 @@ class RegistrationFormType extends AbstractType
                 'allow_delete' => true,
                 'delete_label' => 'Supprimer Photo',
                 'download_uri' => true,
-                'download_label' => 'Choisir une Photo',
+                'download_label' => 'Télécharger votre Photo',
                 'asset_helper' => true,
             ])
             ->add('agreeTerms', CheckboxType::class, [
