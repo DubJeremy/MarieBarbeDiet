@@ -1,0 +1,45 @@
+header
+{
+    font-family: "playfair";
+    color: $darkgreen;
+    width: 100%;
+    height: 8em;
+    background-color: $greentea;
+
+    nav 
+    {
+        @include flex ($dir:row, $just: space-between);
+        height: 100%;
+        width: 100%;
+        >div
+        {
+            @include flex ($dir:row);
+            width: 20%;
+            
+            img 
+            {
+                height: 120px;
+            }
+            >div
+            {
+                height: 100%;
+                @include flex ($align: flex-end);
+
+            }
+        }
+        
+        ul 
+        {
+            width: 50%;
+            @include flex ($dir:row, $just:space-around);
+            font-size: 1.2em;
+
+            a 
+            {
+                color: $darkgreen;
+            }
+            
+        }
+
+    }
+}

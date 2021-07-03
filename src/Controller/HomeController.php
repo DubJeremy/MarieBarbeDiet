@@ -81,12 +81,17 @@ class HomeController extends AbstractController
     */
     public function deleteReview(Request $request,Review $review,EntityManagerInterface $em, Security $security)
     {
-        if($this->isCsrfTokenValid('entity_delete_'.$review->getId(),
-        $request->request->get('csrf_token')))
+        $user = $this->security->getUser();
+
+        if ($user === $review->getAuthor())
         {
-        $em->remove($review);
-        $em->flush();
+            if($this->isCsrfTokenValid('review_delete_'.$review->getId(),
+            $request->request->get('csrf_token')))
+            {
+                $em->remove($review);
+                $em->flush();
+            }
+            return $this->redirectToRoute('app_home_index');
         }
-        return$this->redirectToRoute('app_home_index');
     }
 }
