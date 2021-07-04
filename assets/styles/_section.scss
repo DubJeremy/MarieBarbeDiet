@@ -1,0 +1,47 @@
+#firstview
+{
+    height: 60em;
+    
+    div:first-child
+    {
+        height: 35em;
+        @include flex($dir:row);
+        background-image: url(../../public/images/vegetable.jpg);
+        background-size: cover;
+        width: 100%;
+
+        img 
+        {
+            height: 75%;
+            border-radius: 10px;
+            box-shadow: 3px 9px 11px 0px rgba(0,0,0,0.8);
+        }
+        >div
+        {
+            height:32%;
+            width: 26%;
+            background-color: white;
+            position: relative;
+            left: -4.5em;
+            text-align: center;
+
+            h2 
+            {
+                font-family: "romanesco";
+                color: $purple;
+                font-size: 2.2em;
+                font-weight: lighter;
+                margin-top: 16px;
+            }
+            p
+            {
+                margin-top: 0.8em;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 1.2em;
+            }
+        }
+    }
+
+}

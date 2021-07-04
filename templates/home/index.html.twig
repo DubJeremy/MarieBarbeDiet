@@ -3,6 +3,31 @@
 {% block title %}Marie Barbé Diet{% endblock %}
 
 {% block body %}
+    <section id="firstview">
+        <div>
+            <img src="{{asset('images/fdp0.jpg')}}" alt="Photo de Marie Barbé">
+            <div>
+                <h2>
+                    Lorem ipsum, dolor sit amet
+                </h2>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias neque nobis adipisci obcaecati expedita
+                </p>
+                <a href="">En savoir plus</a>
+            </div>
+        </div>
+        <div>
+            <h2>
+                Lorem ipsum, dolor sit amet
+            </h2>
+            <div>
+                <a href="#">Lorem ipsum</a>
+                <a href="#">Lorem ipsum</a>
+                <a href="#">Lorem ipsum</a>
+            </div>
+        </div>
+    </section>
+
     {% for review in reviews %}       
         <div id="review">
             <h3>{{ review.title }}</h3>
