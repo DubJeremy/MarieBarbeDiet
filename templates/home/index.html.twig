@@ -99,6 +99,121 @@
     </section>
 
     {# --------------------------------------------------------------------- #}
+    <section id="appointment">
+        <img src="{{asset('images/bawl2.png')}}" alt="plat diet">
+        <div>
+            <div>
+                <div class="appointmentcard">
+                    <h3>
+                        Première consultation / Bilan
+                    </h3>
+                    <h4>
+                        Compter environ 1 heure
+                    </h4>
+                    <ul>
+                        <li>
+                            Bilan complet
+                        </li>
+                        <li>
+                            Mise en évidence des points positifs et des difficultés
+                        </li>
+                        <li>
+                            Définition du plan alimentaire personnalisé
+                        </li>
+                        <li>
+                            Mise en place du suivi pour préparer l'accompagnement
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="appointmentcard">
+                    <h3>
+                        Consultations de suivi
+                    </h3>
+                    <h4>
+                        Environ 30 min
+                    </h4>
+                    <ul>
+                        <li>
+                            Prise en compte de votre ressenti
+                        </li>
+                        <li>
+                            Mise en évidence de votre évolution
+                        </li>
+                        <li>
+                            Adaptation du plan alimentaire en fonction de vos besoins
+                        </li>
+                        <li>
+                            Réponses à vos questions et conseils personnalisés
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    {# --------------------------------------------------------------------- #}
+    <section id="faq">
+        <div>
+            <h3>
+                Foire aux questions
+            </h3>
+            <ul>
+                <li>
+                    Quelle est la différence entre diététicienne et nutritionniste?
+                    <ul>
+                        <li>
+                            Un/une diététicien(ne) est un professionnel reconnue et diplômé d’un BTS ou DUT. Ce diplôme d’État  est enregistré auprès de l’agence Régionale de santé et possède un numéro ADELI.  ce qui Garanti des qualifications,  une formation qui a été encadrée et un statut légal. Les consultations sont remboursées par les mutuelles. 
+                        </li>
+                        <li>
+                            Un nutritionniste n'est pas forcément un professionnel de santé, il ou elle n'a pas de statut légal, pas de formation reconnue et définie. Il y a donc une possibilité de commerce illégal.
+                            Assurez-vous que votre nutritionniste soit un diététicien ou un médecin !
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Les consultations sont remboursées par l’assurance maladie?
+                    <ul>
+                        <li>
+                            Les consultations diététiques ne sont pas remboursées par l’assurance maladie néanmoins certaines mutuelles prennent en charge les remboursements des consultations. 
+                            Une facture vous sera remise à chaque consultation par simple demande. 
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Quel est votre secteur de consultation?
+                    <ul>
+                        <li>
+                            Bordeaux et rive gauche (dans un rayon de 15km autours de Mérignac) sans supplément. 
+                            Pour toute consultations hors de cette zone pensez aux consultations à distance. 
+                            N’hésitez pas à me contacter pour tout renseignement sur les déplacements. 
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Qu'elles sont les  Avantages de la consultation à distance?
+                    <ul>
+                        <li>
+                            Envoie d’un lien par mail au moment de la prise de RDV. Cette consultation est identique à celles en présentiel, sans déplacement. Seule différence : paiement avant la consultation.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Qu'elle est votre politique d'annulation des rendez-vous?
+                    <ul>
+                        <li>
+                            Si vous souhaitez annuler un RDV, merci de prévenir 48h à l’avance maximum pour un remboursement de votre consultation. 
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                Pour toute autre questions prenez contact via le formulaire de contact, mail ou téléphone.
+            </p>
+        </div>
+    </section>
+
+    {# --------------------------------------------------------------------- #}
     {% for message in app.flashes('success') %} 
         {{ message }}
     {% endfor %}

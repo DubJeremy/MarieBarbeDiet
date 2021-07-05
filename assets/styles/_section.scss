@@ -101,6 +101,7 @@
 {
     height:54em;
     background-image: url(../../public/images/floral.png);
+    background-attachment: fixed;
     @include flex($just:flex-start);
     @include borderbottom;
     
@@ -124,7 +125,7 @@
         margin-bottom: 10px;
     }
 }
- // ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
 #usercategories
 {
     background-color: $greentea;
@@ -135,7 +136,7 @@
         @include flex ($dir:row);
         flex-wrap: wrap;
         padding: 3em 10em 0em 10em;
-
+        
         .categorycard
         {
             width: 450px;
@@ -167,4 +168,87 @@
             }
         }
     }
+}
+// ----------------------------------------------------------------------
+#appointment
+{
+    @include borderbottom;
+    
+    img 
+    {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+    }
+    >div
+    {
+        position: relative;
+        z-index: 2;
+        padding: 12em 30em;
+        @include flex($dir: row);
+        
+        >div
+        {
+            width: 400px;
+            min-width: 400px;
+            height: 400px;
+            border: 7px solid black;
+            background-image: url(../../public/images/floral.png);
+            background-attachment: fixed;
+            
+            
+            .appointmentcard
+            {
+                background-color: white;
+                margin: 15px;
+                height: 365px;
+                border: 3px solid $purple;
+                
+                h3 
+                {
+                    color: $purple;
+                    width:100%;
+                    text-align: center;
+                    margin-top: 10px;
+                    font-family: "romanesco";
+                    font-size: 2.3em;
+                    font-weight: 400;
+                }
+                h4 
+                {
+                    font-family: "playfair";
+                    width:100%;
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+                ul 
+                {
+                    font-family: "playfair";
+                    padding: 20px 20px;
+                    
+                    li 
+                    {
+                        
+                        list-style: initial;
+                        margin-bottom: 15px;
+                        margin-left: 20px;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+        
+        >div:nth-child(2)
+        {
+            position: relative;
+            left: -80px;
+            top: 290px;
+        }
+    }
+}
+// ----------------------------------------------------------------------
+#faq
+{
+    position: relative;
+    z-index: 3;
 }
