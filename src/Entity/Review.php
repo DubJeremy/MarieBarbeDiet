@@ -28,7 +28,7 @@ class Review
     private $content;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;

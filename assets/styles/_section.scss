@@ -1,6 +1,5 @@
 #firstview
 {
-    height: 60em;
     
     div:first-child
     {
@@ -9,7 +8,8 @@
         background-image: url(../../public/images/vegetable.jpg);
         background-size: cover;
         width: 100%;
-
+        border-bottom: 3px solid $darkgreen;
+        
         img 
         {
             height: 75%;
@@ -24,7 +24,7 @@
             position: relative;
             left: -4em;
             text-align: center;
-
+            
             h2 
             {
                 font-family: "romanesco";
@@ -50,7 +50,7 @@
                 color: white;
                 padding: 0.5em 2.4em;
                 border-radius: 20px;
-
+                
                 &:hover
                 {
                     @include hover;
@@ -63,7 +63,8 @@
         height: 16em;
         background-color: $greentea;
         @include flex($just: flex-start);
-
+        border-bottom: 3px solid $darkgreen;
+        
         h2 
         {
             font-family: "amaticSC";
@@ -94,4 +95,10 @@
             }
         }
     }
+}
+// ----------------------------------------------------------------------
+#presentation
+{
+    height:40em;
+    background-image: url(../../public/images/floral.png);
 }

@@ -13,7 +13,7 @@
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias neque nobis adipisci obcaecati expedita
                 </p>
-                <a href="">En savoir plus</a>
+                <a href="#presentation">En savoir plus</a>
             </div>
         </div>
         <div>
@@ -27,7 +27,19 @@
             </div>
         </div>
     </section>
-
+    {# ---------------------------------------------------------- #}
+    <section id="presentation">
+        <h2>
+            Lorem ipsum dolor
+        </h2>
+        <p>
+            
+        </p>
+    </section>
+    {% for message in app.flashes('success') %} 
+        {{ message }}
+    {% endfor %}
+    
     {% for review in reviews %}       
         <div id="review">
             <h3>{{ review.title }}</h3>
@@ -50,3 +62,5 @@
             <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
     {% endif %}
 {% endblock %}
+
+{# Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, totam. Tenetur eius voluptas dolores corrupti ad illo quaerat laboriosam facilis doloremque molestias qui, dolorum commodi harum magni quia. At, placeat. #}
