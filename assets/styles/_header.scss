@@ -40,7 +40,7 @@ header
         {
             width: 50%;
             @include flex ($dir:row, $just: flex-end);
-            font-size: 1.2em;
+            font-size: 1.3em;
             
             li 
             {

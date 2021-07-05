@@ -18,11 +18,11 @@
         }
         >div
         {
-            height:32%;
+            height:35%;
             width: 26%;
             background-color: white;
             position: relative;
-            left: -4.5em;
+            left: -4em;
             text-align: center;
 
             h2 
@@ -36,12 +36,62 @@
             p
             {
                 margin-top: 0.8em;
-                width: 80%;
+                width: 85%;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 1.2em;
+                font-size: 1.1em;
+                font-family: "playfair";
+                margin-bottom: 1.6em;
+            }
+            a 
+            {
+                font-family: "playfair";
+                background-color: $darkgreen;
+                color: white;
+                padding: 0.5em 2.4em;
+                border-radius: 20px;
+
+                &:hover
+                {
+                    @include hover;
+                }
             }
         }
     }
+    >div:nth-child(2)
+    {
+        height: 16em;
+        background-color: $greentea;
+        @include flex($just: flex-start);
 
+        h2 
+        {
+            font-family: "amaticSC";
+            font-size: 2.5em;
+            margin-top: 1.2em;
+        }
+        div
+        {
+            width: 60%;
+            @include flex($dir: row, $just: space-between);
+            flex-wrap: wrap;
+            margin-top: 2.3em;
+
+            a 
+            {
+                font-family: "playfairb";
+                font-size: 1.4em;
+                background-color: $darkgreen;
+                color: white;
+                padding: 0.7em 3.5em;
+                border-radius: 10px;
+                border: 3px solid $flashygreen;
+
+                &:hover
+                {
+                    @include hover;
+                }
+            }
+        }
+    }
 }

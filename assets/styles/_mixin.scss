@@ -4,4 +4,10 @@
     justify-content: $just;
     align-items: $align;
     flex-direction: $dir;    
-}                
+}     
+
+@mixin hover  
+{
+    color: $darkgreen;
+    background-color: $purple;
+}

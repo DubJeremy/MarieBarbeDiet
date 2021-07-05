@@ -14,6 +14,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     /**
      * @Route("/", name="app_home_index")
      */
@@ -77,9 +84,9 @@ class HomeController extends AbstractController
     }
 
     /**
-    *@Route("/{id}/delete",name="app_home_deleteReview", methods="DELETE", requirements={"id"="\d+"})
+    *@Route("/{id}/delete",name="app_home_deleteReview", requirements={"id"="\d+"})
     */
-    public function deleteReview(Request $request,Review $review,EntityManagerInterface $em, Security $security)
+    public function deleteReview(Request $request,Review $review,EntityManagerInterface $em, Security $securiry)
     {
         $user = $this->security->getUser();
 
@@ -88,6 +95,7 @@ class HomeController extends AbstractController
             if($this->isCsrfTokenValid('review_delete_'.$review->getId(),
             $request->request->get('csrf_token')))
             {
+                $em = $this->getDoctrine()->getManager();
                 $em->remove($review);
                 $em->flush();
             }
