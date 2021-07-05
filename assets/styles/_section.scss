@@ -41,7 +41,7 @@
                 margin-right: auto;
                 font-size: 1.1em;
                 font-family: "playfair";
-                margin-bottom: 1.6em;
+                margin-bottom: 0.8em;
             }
             a 
             {
@@ -69,7 +69,7 @@
         {
             font-family: "amaticSC";
             font-size: 2.5em;
-            margin-top: 1.2em;
+            margin-top: 0.8em;
         }
         div
         {
@@ -173,8 +173,7 @@
 // ----------------------------------------------------------------------
 #appointment
 {
-    @include borderbottom;
-    height: 78em;
+    height: 71em;
     
     img 
     {
@@ -252,14 +251,62 @@
 {
     @include flex;
     
-    div
+    >div
     {
-        width: 60%;
+        width: 60em;
+        height: 50em;
         position: relative;
         z-index: 3;
         background-image: url(../../public/images/greentaste.jpg);
-        background-size: cover;
-        @include flex;
+        background-size: contain;
+        @include flex($just: flex-start);
+
+        h3 
+        {
+            margin-top: 0.6em;
+            margin-bottom: 0.6em;
+            font-family: "amaticSCb";
+            font-size: 4em;
+        }
+        >div 
+        {
+            margin-left: 10em;
+            margin-right: 10em;
+            text-align: center;
+            font-family: "playfairb";
+            @include flex;
+            
+            .question
+            {
+                color: $darkgreen;
+                background-color: white;
+                width: 35em;
+                border: 3px solid $darkgreen;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                margin-bottom: 1.2em;
+                margin-top: 1.2em;
+            }
+            .answer
+            {
+                text-shadow: 1px 1px 2px white;
+                padding-left: 6em;
+                padding-right: 6em;
+                position: relative;
+                display: none;
+                color: black;
+            }
+            >p:last-child
+            {
+                margin-top: 2em;
+                
+                a 
+                {
+                    color: black;
+                    color: $darkgreen;
+                }
+            }
+        }
 
     }
 }
