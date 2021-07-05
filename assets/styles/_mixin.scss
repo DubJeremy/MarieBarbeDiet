@@ -11,3 +11,8 @@
     color: $darkgreen;
     background-color: $purple;
 }
+
+@mixin borderbottom
+{
+    border-bottom: 3px solid $darkgreen;
+}

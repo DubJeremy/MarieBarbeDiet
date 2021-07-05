@@ -8,7 +8,7 @@
         background-image: url(../../public/images/vegetable.jpg);
         background-size: cover;
         width: 100%;
-        border-bottom: 3px solid $darkgreen;
+        @include borderbottom;
         
         img 
         {
@@ -63,7 +63,7 @@
         height: 16em;
         background-color: $greentea;
         @include flex($just: flex-start);
-        border-bottom: 3px solid $darkgreen;
+        @include borderbottom;
         
         h2 
         {
@@ -99,6 +99,29 @@
 // ----------------------------------------------------------------------
 #presentation
 {
-    height:40em;
+    height:54em;
     background-image: url(../../public/images/floral.png);
+    @include flex($just:flex-start);
+    @include borderbottom;
+    
+    h2 
+    {
+        font-family: "romanesco";
+        color: $orange;
+        margin-top: 1em;
+        margin-bottom: 0.6em;
+        font-size: 4em;
+        font-weight: 500;
+    }
+    p 
+    {
+        width: 50%;
+        min-width: 500px;
+        font-family: "playfair";
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
 }
+ // ----------------------------------------------------------------------
