@@ -125,3 +125,46 @@
     }
 }
  // ----------------------------------------------------------------------
+#usercategories
+{
+    background-color: $greentea;
+    @include borderbottom;
+    
+    >div
+    {
+        @include flex ($dir:row);
+        flex-wrap: wrap;
+        padding: 3em 10em 0em 10em;
+
+        .categorycard
+        {
+            width: 450px;
+            height: 130px;
+            border: 2px solid $flashygreen;
+            border-radius: 15px;
+            margin-bottom: 4em;
+            margin-left: 4em;
+            margin-right: 4em;
+            background-color: white;
+            
+            h3 
+            {
+                color: $purple;
+                font-family: "romanesco";
+                font-weight: 500;
+                margin-top: 20px;
+                margin-left: 30px;
+                font-size: 2em;
+            }
+            p 
+            {
+                width: 80%;
+                margin-top: 5px;
+                margin-left: 30px;
+                font-family: "playfair";
+                font-weight: 600;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
