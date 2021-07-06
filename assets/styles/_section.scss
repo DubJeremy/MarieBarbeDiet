@@ -254,12 +254,13 @@
     >div
     {
         width: 60em;
-        height: 50em;
+        height: auto;
         position: relative;
         z-index: 3;
         background-image: url(../../public/images/greentaste.jpg);
         background-size: contain;
         @include flex($just: flex-start);
+        overflow: hidden;
         
         h3 
         {
@@ -290,16 +291,16 @@
             }
             .answer
             {
-                text-shadow: 1px 1px 2px white;
+                // text-shadow: 1px 1px 2px white;
                 padding-left: 6em;
                 padding-right: 6em;
-                position: relative;
-                display: none;
-                color: black;
+                margin-top: 1em;
+                color: $purple;
             }
             >p:last-child
             {
                 margin-top: 2em;
+                margin-bottom: 2em;
                 
                 a 
                 {
@@ -322,22 +323,25 @@
         font-weight: 400;
         margin-left: 2em;
         color:#FFD700;
-        text-shadow: 2px 2px 2px #BDB76B;
+        text-shadow: 2px 2px 4px rgb(82, 82, 82);
     }   
     
-    >div 
+    >div:nth-child(2)
     {
-        margin-top: 2em;
-        margin-bottom: 4em;
+        margin-top: 4em;
+        margin-bottom: 2em;
         width: 100%;
         height: 15em;
         background-image: url(../../public/images/GoldBook.png);
         background-attachment: fixed;
+        @include flex ($dir: row);
         
         .reviewcard
         {
             text-align: center;
-            padding-top: 4em;
+            position: relative;
+            margin-left: 5em;
+            margin-right: 5em;
             
             h3 
             {
@@ -357,7 +361,51 @@
                 color: $purple;
                 font-size: 2em;
             }
+            >div
+            {
+                width: 15em;
+                left: -2.7em;
+                @include flex($dir: row, $just:space-between);
+                position: absolute;
+                margin-top: 20px;
+
+                >a, button
+                {
+                    font-family: "playfair";
+                    color: black;
+                    font-size: 0.8em;
+                    border: 1px solid black;
+                    background-color: transparent;
+                    padding: 0.3em 2em;
+                    border-radius: 20px;
+
+                    &:hover
+                    {
+                        @include hover;
+                    }
+                }
+
+            }
+        }
+    }
+    .btn
+    {
+        width: 100%;
+        @include flex;
+        height: 6em;
+
+        >a 
+        {
+            font-family: "playfairb";
+            background-color: $darkgreen;
+            color: white;
+            padding: 0.5em 3em;
+            border-radius: 20px;
             
+            &:hover
+            {
+                @include hover;
+            }
         }
     }
 }
