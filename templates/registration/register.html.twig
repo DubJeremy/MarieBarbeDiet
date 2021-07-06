@@ -3,46 +3,47 @@
 {% block title %}Marie Barbé Inscription{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <section class="form">
+        <h2>Inscription</h2>
 
-    <h1>Inscription</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.lastname, {
-            label: 'Nom'
-        }) }}
-        {{ form_row(registrationForm.firstname, {
-            label: 'Prénom'
-        }) }}
-        <div class="formphone">
-            <i class="fas fa-phone-alt"></i>
+        {{ form_start(registrationForm) }}
+            <div class="smallform">
+                {{ form_row(registrationForm.lastname, {
+                    label: 'Nom'
+                }) }}
+                {{ form_row(registrationForm.firstname, {
+                    label: 'Prénom'
+                }) }}
+            </div>
             {{ form_row(registrationForm.numberPhone, {
-            label: ' '
-        }) }}
-        </div>
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.userCategory, {
-            label: 'Profil de patient'
-        }) }}
-        {{ form_row(registrationForm.age, {
-            label: 'Age'
-        }) }}
-        {{ form_row(registrationForm.height, {
-            label: 'Taille'
-        }) }}
-        {{ form_row(registrationForm.weight, {
-            label: 'Poids'
-        }) }}
-        {{ form_row(registrationForm.profilePictureFile, {
-            label: 'Photo de Profil',
-        }) }}
-        {{ form_row(registrationForm.password) }}
-        {{ form_row(registrationForm.agreeTerms, {
-            label: 'Accepter les conditions d\'utilisation'
-        }) }}
-
-        <button type="submit">S'inscrire</button>
-    {{ form_end(registrationForm) }}
+            label: 'Téléphone'
+            }) }}
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div role="alert">{{ flashError }}</div>
+            {% endfor %}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.userCategory, {
+                label: 'Profil de patient'
+            }) }}
+            {{ form_row(registrationForm.age, {
+                label: 'Age'
+            }) }}
+            <div class="smallform">
+                {{ form_row(registrationForm.height, {
+                    label: 'Taille'
+                }) }}
+                {{ form_row(registrationForm.weight, {
+                    label: 'Poids'
+                }) }}
+            </div>
+            {{ form_row(registrationForm.profilePictureFile, {
+                label: 'Photo de Profil',
+            }) }}
+            {{ form_row(registrationForm.password) }}
+            {{ form_row(registrationForm.agreeTerms, {
+                label: 'Accepter les conditions d\'utilisation'
+            }) }}
+            <button type="submit">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+    </section>
 {% endblock %}

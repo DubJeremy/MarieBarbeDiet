@@ -288,6 +288,11 @@
                 margin-bottom: 1.2em;
                 margin-top: 1.2em;
                 font-size: 1.1em;
+
+                &:hover
+                {
+                    cursor: pointer;
+                }
             }
             .answer
             {
@@ -411,4 +416,59 @@
 }
 
 // ----------------------------------------------------------------------
+.form
+{
+    @include flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 3em;
+    
+    h2
+    {
+        font-family: "playfair";
+        font-size: 2.5em;
+        margin-bottom: 1em;
+    }
+    form
+    {
+        @include flex;
+        margin-bottom: 5em;
+        >div
+        {
+            width: 20em;
+            margin-bottom: 10px;
+            
+            input 
+            {
+                font-family: "playfair";
+                @include flex;
+                width: 100%;
+                height: 2em;
+                border: 1px solid $purple;
+                border-radius: 3px;
+            }
+            label
+            {
+                font-family: "playfair";
+                margin-right: 20px;
+            }
 
+        }
+    }
+    .smallform
+    {
+        @include flex($dir: row, $just:space-between);
+
+        >div
+        {
+            width: 150px;
+
+
+            input 
+            {
+                width:100%;
+            }
+        }
+    }
+
+}
