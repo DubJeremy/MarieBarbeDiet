@@ -197,38 +197,46 @@
                     Si vous souhaitez annuler un RDV, merci de prévenir 48h à l’avance maximum pour un remboursement de votre consultation. 
                 </p>
                 <p>
-                    Pour toute autre questions prenez contact via le formulaire de contact,<a href="#"> mail</a> ou téléphone.
+                    Pour toute autre questions prenez contact via le formulaire de contact,<a href="mailto:dieteticienne.marie@gmail.com"> mail</a> ou téléphone. 
+                    <span>0749645452</span>
                 </p>
             </div>
         </div>
     </section>
 
     {# --------------------------------------------------------------------- #}
-    {% for message in app.flashes('success') %} 
-        {{ message }}
-    {% endfor %}
-    
-    {% for review in reviews %}       
-        <div id="review">
-            <h3>{{ review.title }}</h3>
-            <p>{{ review.content }}</p>
-            <h4>{{ review.author.firstname }}</h4>
-        </div>
-        {% if app.user is same as(review.author) %}
-            <a href="{{path('app_home_editReview',{'id': review.id})}}">Modifier</a>
+    <section id="review">
+        <h2>
+            Livre d'or
+        </h2>
+        {% for message in app.flashes('success') %} 
+            {{ message }}
+        {% endfor %}
+        <div>
+            <div>
+            {% for review in reviews %}       
+                <div class="reviewcard">
+                    <h3>{{ review.title }}</h3>
+                    <p>{{ review.content }}</p>
+                    <h4>{{ review.author.firstname }}.</h4>
+                </div>
+                {% if app.user is same as(review.author) %}
+                    <a href="{{path('app_home_editReview',{'id': review.id})}}">Modifier</a>
 
-            <form action="{{path('app_home_deleteReview',{'id': review.id})}}" 
-             method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <input type="hidden" name="csrf_token" value="{{csrf_token('review_delete_'~ review.id)}}">
-                <input type="submit" value="Supprimer">
-            </form>
-            
-        {% endif %}    
-    {% endfor %}
-    {% if app.user %}
+                    <form action="{{path('app_home_deleteReview',{'id': review.id})}}" 
+                    method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token('review_delete_'~ review.id)}}">
+                        <input type="submit" value="Supprimer">
+                    </form> 
+                {% endif %}    
+            {% endfor %}
+            </div>
+        </div>
+        {% if app.user %}
             <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
-    {% endif %}
+        {% endif %}  
+    </section>
 {% endblock %}
 
 {# Lorem ipsum dolor sit amet consectetur adipisicing ept. Natus, totam. Tenetur eius voluptas dolores corrupti ad illo quaerat laboriosam facips doloremque molestias qui, dolorum commodi harum magni quia. At, placeat. #}
