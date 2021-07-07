@@ -21,9 +21,9 @@
                 <a class='underline' href="{{path("app_registration_register")}}">Inscription</a> / <a  class='underline' href="{{path("app_security_login")}}">Connexion</a>
             </li>
             {% else %}            
-                <li>
+                {# <li>
                     <a  class='underline' href="{{path("app_booking_index")}}">Rdv</a>
-                </li>
+                </li> #}
                 <li>
                     <a href="{{path("app_user_profile",{'id' : app.user.id})}}"><i class="far fa-user-circle"></i></a>
                 </li>
@@ -34,3 +34,5 @@
         </ul>
     </nav>
 </header>
+
+{# www.gloomaps.com/3pEvaZMFY7G #}
