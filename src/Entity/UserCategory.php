@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\UserCategoryRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Recipe;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserCategoryRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=UserCategoryRepository::class)
@@ -24,6 +25,12 @@ class UserCategory
      */
     private $userCategory;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="userCategory")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
+     */
+    private $recipe;
+
     public function __toString()
     {
         return $this->userCategory;
@@ -38,12 +45,20 @@ class UserCategory
     {
         return $this->userCategory;
     }
-
+    
     public function setUserCategory(string $userCategory): self
     {
         $this->userCategory = $userCategory;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|recipe[]
+     */
+    public function getRecipe(): Collection
+    {
+        return $this->recipe;
     }
 
 }

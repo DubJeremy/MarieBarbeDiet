@@ -414,8 +414,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     // public function imc()
     // {
-    //     $this->getWeight() = $weightUser;
-    //     $this->getHeight() = $heightUser;
+    //     $weightUser = $this->getWeight();
+    //     $heightUser = $this->getHeight();
     //     $imc = $weightUser / ($heightUser * $heightUser);
     //     return $imc;
     // }

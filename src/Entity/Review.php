@@ -29,7 +29,7 @@ class Review
 
     /**
      * @ORM\OneToOne(targetEntity=User::class)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $author;
 

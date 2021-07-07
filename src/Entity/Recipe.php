@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\Collection;
@@ -9,8 +10,8 @@ use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 use Symfony\Component\Validator\Constraints\EnableAutoMapping;
 
 /**
@@ -60,8 +61,31 @@ class Recipe
 
     /**
      * @ORM\Column(type="datetime")
+     * 
+     * @ORM\ManyToOne(targetEntity=UserCategory::class, inversedBy="articles")
      */
     private $createdAt;
+
+    public function __serialize(): array
+    {
+        return [
+            'id'=> $this->id,
+            'title'=> $this->title,
+            'recipe'=> $this->recipe,
+            'picture'=> $this->picture,
+            
+        ];
+    }
+
+    public function __unserialize(array $serialized): User
+    {
+            $this->id = $serialized['id'];
+            $this->title= $serialized['title'];
+            $this->recipe= $serialized['recipe'];
+            $this->picture= $serialized['picture'];
+            
+            return $this;
+    }
 
     /**
      * @ORM\PrePersist

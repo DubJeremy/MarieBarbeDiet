@@ -18,6 +18,10 @@ class RecipeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Recipe::class);
     }
+    public function findByAll()
+    {
+        return $this->findBy([], ['createdAt' => 'DESC']);
+    }
 
     // /**
     //  * @return Recipe[] Returns an array of Recipe objects

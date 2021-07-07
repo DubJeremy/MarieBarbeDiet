@@ -51,6 +51,7 @@ class UserCrudController extends AbstractCrudController
                     ->setLabel('Age'),
                 DateField::new('age')
                     ->setLabel('Date de Naissance'),
+                // TextField::new('imc'),
                 TextField::new('height')
                     ->setLabel('Taille'),
                 TextField::new('weight')
