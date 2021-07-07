@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Entity\Recipe;
 use App\Entity\Review;
 use App\Entity\Booking;
+use App\Entity\Contact;
 use App\Entity\TimeSlot;
 use App\Entity\Difficulty;
 use App\Entity\BookingType;
@@ -48,6 +49,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-bars');
         yield MenuItem::linkToCrud('Patients', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Messages', 'far fa-comment', Contact::class);
         yield MenuItem::linkToCrud('Disponibilités', 'far fa-calendar-minus', TimeSlot::class);
         yield MenuItem::linkToCrud('Rendez-vous', 'far fa-calendar-alt', Booking::class);
         yield MenuItem::linkToCrud('Posts', 'far fa-sticky-note', Post::class);

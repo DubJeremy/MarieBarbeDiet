@@ -47,6 +47,7 @@ class RecipeCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setDefaultSort(['createdAt' => 'DESC']);
+            ->setDefaultSort(['createdAt' => 'DESC'])
+            ->setPageTitle(Crud::PAGE_INDEX, 'Recettes');
     }
 }
