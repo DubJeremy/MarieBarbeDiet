@@ -3,40 +3,53 @@
 {% block title %}Marie Barbé Diet{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.lastname, {
-            label: 'Nom'
-        }) }}
-        {{ form_row(form.firstname, {
-            label: 'Prénom'
-        }) }}
-        <div class="formphone">
-            <i class="fas fa-phone-alt"></i>
+    <section class="form">
+        <h2>Modifier vos informations</h2>
+        {{ form_start(form) }}
+            <div class="smallform">
+                {{ form_row(form.lastname, {
+                    label: 'Nom'
+                }) }}
+                {{ form_row(form.firstname, {
+                    label: 'Prénom'
+                }) }}
+            </div>
             {{ form_row(form.numberPhone, {
-            label: ' '
-        }) }}
-        </div>
-        {{ form_row(form.email) }}
-        {{ form_row(form.userCategory, {
-            label: 'Profil de patient'
-        }) }}
-        {{ form_row(form.age, {
-            label: 'Age'
-        }) }}
-        {{ form_row(form.height, {
-            label: 'Taille'
-        }) }}
-        {{ form_row(form.weight, {
-            label: 'Poids'
-        }) }}
-        {{ form_row(form.profilePictureFile, {
-            label: 'Photo de Profil',
-        }) }}
-        {{ form_row(form.password) }}
-        {{ form_row(form.agreeTerms, {
-            label: 'Accepter les conditions d\'utilisation'
-        }) }}
+                label: 'Téléphone'
+            }) }}
+            {% for flashError in app.flashes('verify_email_error') %}
+                <div role="alert">{{ flashError }}</div>
+            {% endfor %}
+            {{ form_row(form.email) }}
+            <div class="choicebox">
+                {{ form_row(form.age, {
+                    label: 'Age'
+                }) }}
+            </div>
+            <div class="smallform">
+                {{ form_row(form.height, {
+                    label: 'Taille'
+                }) }}
+                {{ form_row(form.weight, {
+                    label: 'Poids'
+                }) }}
+            </div>
+             <div class="choicebox">
+                {{ form_row(form.userCategory, {
+                    label: 'Profil de patient'
+                }) }}
+            </div>
+            {{ form_row(form.profilePictureFile, {
+                label: 'Photo de Profil',
+            }) }}
+            {{ form_row(form.password) }}
+            <div class="check">
+                {{ form_row(form.agreeTerms, {
+                    label: 'Accepter les conditions d\'utilisation'
+                }) }}
+            </div>
 
-        <button type="submit">Sauvegarder</button>
-    {{ form_end(form) }}
+            <button type="submit">Sauvegarder</button>
+        {{ form_end(form) }}
+    </section>
 {% endblock %}

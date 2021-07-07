@@ -27,24 +27,24 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
-     *
-     * @param mixed $id
-     */
-    public function findCategorieId(UserCategoryRepository $categoryRepository, $id, UserRepository $userRepository, RecipeRepository $recipeRepository): Response
-    {
-        $user = $userRepository->find($id);
-        $category = $user->getUserCategory();
-        // $recipes = $category->getRecipe();
-        $recipes = $recipeRepository->find($category);
-        dd($recipes);
+    // /**
+    //  * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
+    //  *
+    //  * @param mixed $id
+    //  */
+    // public function findCategorieId(UserCategoryRepository $categoryRepository, $id, UserRepository $userRepository, RecipeRepository $recipeRepository): Response
+    // {
+    //     $user = $userRepository->find($id);
+    //     $category = $user->getUserCategory();
+    //     // $recipes = $category->getRecipe();
+    //     $recipes = $recipeRepository->find($category);
+    //     dd($recipes);
 
-        return $this->render('user/profile.html.twig', [
-            'recipes' => $recipes,
+    //     return $this->render('user/profile.html.twig', [
+    //         'recipes' => $recipes,
                 
-        ]);
-    }
+    //     ]);
+    // }
 
     
 
@@ -67,16 +67,16 @@ class UserController extends AbstractController
     // }
 
 
-    // /**
-    //  * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
-    //  */
-    // public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
-    // {
-    //     $posts = $repositoryPost->findAll();
-    //     $recipes = $repositoryRecipe->findByAll();
+    /**
+     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
+     */
+    public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
+    {
+        $posts = $repositoryPost->findAll();
+        $recipes = $repositoryRecipe->findByAll();
 
-    //     return $this->render('user/profile.html.twig', [
-    //         'posts' => $posts , 'recipes' => $recipes,
-    //     ]);
-    // }
+        return $this->render('user/profile.html.twig', [
+            'posts' => $posts , 'recipes' => $recipes,
+        ]);
+    }
 }

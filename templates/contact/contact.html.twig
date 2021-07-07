@@ -3,8 +3,8 @@
 {% block title %}Contactez Marie B.{% endblock %}
 
 {% block body %}
-    <section>
-    <h1>Contactez Marie</h1>
+    <section class="form">
+        <h2>Contacter Marie</h2>
         {{form_start(formContact)}}
             {% for message in app.flashes('success') %}
                 {{ message }}
@@ -20,7 +20,11 @@
             
             {{form_row(formContact.message)}}
 
-            {{form_row(formContact.Envoyer)}}
+            <button>
+                Envoyer
+            </button>
         {{form_end(formContact)}}
+
+        <div class="space1"></div>
     </section>
 {% endblock %}

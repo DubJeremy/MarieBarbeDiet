@@ -5,12 +5,22 @@
     margin: auto;
     margin-top: 3em;
 
-    input 
+    input
     {
         font-family: "playfair";
         @include flex;
         width: 100%;
         height: 2em;
+        border: 1px solid $purple;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+    textarea
+    {
+        font-family: "playfair";
+        @include flex;
+        width: 100%;
+        height: 5em;
         border: 1px solid $purple;
         border-radius: 3px;
         margin-bottom: 10px;
@@ -130,5 +140,9 @@
     .space0
     {
         height: 4.2em;
+    }
+    .space1
+    {
+        height: 3em;
     }
 }
