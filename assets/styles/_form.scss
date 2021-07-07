@@ -1,0 +1,134 @@
+.form
+{
+    @include flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 3em;
+
+    input 
+    {
+        font-family: "playfair";
+        @include flex;
+        width: 100%;
+        height: 2em;
+        border: 1px solid $purple;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+    label
+    {
+        font-family: "playfair";
+        margin-right: 20px;
+    }
+    h2
+    {
+        font-family: "playfair";
+        font-size: 2.5em;
+        margin-bottom: 1em;
+    }
+    form
+    {
+        @include flex;
+        margin-bottom: 5em;
+        >div
+        {
+            width: 20em;
+
+        }
+    }
+    .smallform
+    {
+        @include flex($dir: row, $just:space-between);
+
+        >div
+        {
+            width: 150px;
+
+
+            input 
+            {
+                width:100%;
+            }
+        }
+    }
+    .check
+    {
+        div
+        {
+            @include flex;
+            
+            label
+            {
+                font-size: 0.8em;
+            }
+            input 
+            {
+                width: 20px;
+            }
+        }
+    }
+    .choicebox
+    {
+        div
+        {
+            @include flex($dir: row);
+            margin-bottom: 10px;
+            margin-top: 10px;
+
+            input 
+            {
+                width: 20px;
+            }
+        }
+    }
+    button 
+    {
+        width: 6em;
+        background-color: transparent;
+        border: 1px solid $purple;
+        background-color: transparent;
+        height: 1.5em;
+        border-radius: 25px;
+        color: $purple;
+        font-family: "robotob";
+        font-size: 1.2em;
+        position: relative;
+        transition: all 1ms linear;
+        box-shadow: 2px 3px 0px 0px  $darkgreen;
+        z-index: 2;
+
+        &:active
+        {
+            top: 2px;
+            left: 3px;
+            box-shadow: 0px 0px 0px 0px;
+            border: 0px solid white;
+        }
+        &:hover
+        {
+            background-color: $orange;
+            color: $purple;
+            cursor: pointer;
+        }
+        &:focus {outline: none}
+    }
+    .check2 
+    {
+        @include flex;
+        font-size: 0.8em;
+        margin-right: 0px;
+
+        input 
+        {
+            width: 20px;
+        }
+    }
+    .space
+    {
+        height: 5em;
+    }
+    .space0
+    {
+        height: 4.2em;
+    }
+}

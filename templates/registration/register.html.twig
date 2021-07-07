@@ -22,12 +22,11 @@
                 <div role="alert">{{ flashError }}</div>
             {% endfor %}
             {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.userCategory, {
-                label: 'Profil de patient'
-            }) }}
-            {{ form_row(registrationForm.age, {
-                label: 'Age'
-            }) }}
+            <div class="choicebox">
+                {{ form_row(registrationForm.age, {
+                    label: 'Date de naissance'
+                }) }}
+            </div>
             <div class="smallform">
                 {{ form_row(registrationForm.height, {
                     label: 'Taille'
@@ -36,13 +35,20 @@
                     label: 'Poids'
                 }) }}
             </div>
+            <div class="choicebox">
+                {{ form_row(registrationForm.userCategory, {
+                    label: 'Profil de patient'
+                }) }}
+            </div>
             {{ form_row(registrationForm.profilePictureFile, {
                 label: 'Photo de Profil',
             }) }}
             {{ form_row(registrationForm.password) }}
-            {{ form_row(registrationForm.agreeTerms, {
-                label: 'Accepter les conditions d\'utilisation'
-            }) }}
+            <div class="check">
+                {{ form_row(registrationForm.agreeTerms, {
+                    label: 'Accepter les conditions d\'utilisation'
+                }) }}
+            </div>
             <button type="submit">S'inscrire</button>
         {{ form_end(registrationForm) }}
     </section>

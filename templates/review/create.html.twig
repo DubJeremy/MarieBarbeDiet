@@ -3,13 +3,21 @@
 {% block title %}Marie Barbe Avis{% endblock %}
 
 {% block body %}
-    {{form_start(reviewForm)}}
-        {{ form_row(reviewForm.title, {
-            label: 'Titre'
-        }) }}
-        {{ form_row(reviewForm.content, {
-            label: 'Avis'
-        }) }}
-        <input type="submit"value="Envoyer">
-    {{form_end(reviewForm)}}
+    <section class="form">
+        <h2>Laisser un avis</h2>
+        {{form_start(reviewForm)}}
+            {{ form_row(reviewForm.title, {
+                label: 'Titre'
+            }) }}
+            {{ form_row(reviewForm.content, {
+                label: 'Avis'
+            }) }}
+            <button>
+                Envoyer
+            </button>
+        {{form_end(reviewForm)}}
+
+        <div class="space"></div>
+        <div class="space0"></div>
+    </section>
 {% endblock %}

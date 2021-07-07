@@ -11,7 +11,6 @@
     question.on('click', function()
     {
         $(this).children().slideToggle('slow');
-        // $(this).question.slideToggle('slow');
         $(this).siblings().children().slideUp();
     });
     
