@@ -40,4 +40,28 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/user/{id}/edit", name="app_edit", requirements={"id"="\d+"})
+     */
+    public function edit(Request $request, User $user): Response
+    {
+        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_user_profile', ['id' => $user->getId()]);
+        }
+
+        return $this->render('security/edit.html.twig', [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]);
+
+        return $this->render('common/error.html.twig', [
+            'error' => 401,
+            'message' => 'Unauthorized access',
+        ]);
+    }
 }

@@ -39,29 +39,7 @@ class SecurityController extends AbstractController
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
-    /**
-     * @Route("/user/{id}/edit", name="app_security_edit", requirements={"id"="\d+"})
-     */
-    public function edit(Request $request, User $user): Response
-    {
-        $form = $this->createForm(RegistrationFormType::class, $user);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('app_user_profile');
-        }
-
-        return $this->render('security/edit.html.twig', [
-                'user' => $user,
-                'form' => $form->createView(),
-            ]);
-
-        return $this->render('common/error.html.twig', [
-            'error' => 401,
-            'message' => 'Unauthorized access',
-        ]);
-    }
+    
 
     /**
      * @Route("/user/{id}/delete", name="app_security_delete", requirements={"id"="\d+"})

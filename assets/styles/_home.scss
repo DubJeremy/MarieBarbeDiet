@@ -35,20 +35,20 @@
             }
             p
             {
-                margin-top: 0.8em;
+                margin-top: 0.4em;
                 width: 85%;
                 margin-left: auto;
                 margin-right: auto;
                 font-size: 1.1em;
                 font-family: "playfair";
-                margin-bottom: 0.8em;
+                margin-bottom: 1.5em;
             }
             a 
             {
                 font-family: "playfair";
                 background-color: $darkgreen;
                 color: white;
-                padding: 0.5em 2.4em;
+                padding: 0.3em 1em;
                 border-radius: 20px;
                 
                 &:hover
@@ -73,18 +73,23 @@
         }
         div
         {
-            width: 60%;
-            @include flex($dir: row, $just: space-between);
+            width: 100%;
+            @include flex($dir: row);
             flex-wrap: wrap;
             margin-top: 2.3em;
 
-            a 
+            a
             {
                 font-family: "playfairb";
                 font-size: 1.4em;
                 background-color: $darkgreen;
                 color: white;
-                padding: 0.7em 3.5em;
+                padding-top: 0.7em;
+                width: 300px;
+                height: 2em ;
+                text-align: center;
+                margin-left: 20px;
+                margin-right: 20px;
                 border-radius: 10px;
                 border: 3px solid $flashygreen;
 
@@ -387,6 +392,7 @@
                     &:hover
                     {
                         @include hover;
+                        cursor: pointer;
                     }
                 }
 

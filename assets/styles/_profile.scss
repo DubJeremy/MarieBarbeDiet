@@ -1,0 +1,65 @@
+#profile
+{
+    @include flex;
+    width: 100%;
+
+    #infouser
+    {
+        width: 100%;
+        @include flex;
+
+        >img 
+        {
+            margin-top: 2em;
+            width: 250px;
+            height:250px;
+            object-fit: cover;
+            border-radius: 50%;
+            max-width: 100%;
+        }
+        h3 
+        {
+            color: $purple;
+            font-family: "amaticSC";
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 1em;
+
+        }
+
+        a 
+        {
+            font-family: "playfair";
+            color: black;
+            font-size: 0.8em;
+            border: 1px solid black;
+            background-color: transparent;
+            padding: 0.3em 2em;
+            border-radius: 20px;
+
+            &:hover
+            {
+                @include hover;
+                cursor: pointer;
+            }
+        } 
+
+        button
+        {
+            font-family: "playfair";
+            color: black;
+            font-size: 0.8em;
+            border: 1px solid black;
+            background-color: transparent;
+            padding: 0.3em 2em;
+            border-radius: 20px;
+            margin-top: 10px;
+            
+            &:hover
+            {
+                @include hover;
+            }
+            
+        }
+    }
+}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Serializable;
 use DateTimeImmutable;
 use App\Entity\UserCategory;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,13 +11,13 @@ use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints\Image;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\EnableAutoMapping;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -88,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
-    private $updated;
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
@@ -115,10 +116,41 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
     
-     public function __construct()
-     {
-         
-     }
+    public function __serialize(): array
+    {
+        return [
+            'id'=> $this->id,
+            'email'=> $this->email,
+            'password'=> $this->password,
+            'firstname'=> $this->firstname,
+            'lastname'=> $this->lastname,
+            'userCategory'=> $this->userCategory,
+            'age'=> $this->age,
+            'height'=> $this->height,
+            'weight'=> $this->weight,
+            // 'numberphone'=> $this->numberPhone,
+            'profilPicture'=> $this->profilePicture,
+        ];
+    }
+
+    public function __unserialize(array $serialized): User
+    {
+            $this->id = $serialized['id'];
+            $this->email= $serialized['email'];
+            $this->password= $serialized['password'];
+            $this->firstname= $serialized['firstname'];
+            $this->lastname= $serialized['lastname'];
+            $this->userCategory= $serialized['userCategory'];
+            $this->age= $serialized['age'];
+            $this->height= $serialized['height'];
+            $this->weight= $serialized['weight'];
+            // $this->numberPhone= $serialized['numberPhone'];
+            $this->profilePicture= $serialized['profilPicture'];
+
+            return $this;
+    }
+
+    /** @see \Serializable::serialize() */
     public function getId(): ?int
     {
         return $this->id;
@@ -346,22 +378,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     
     /**
-     * Get the value of updated
+     * Get the value of updatedAt
      *
      * @return  \DateTime
      */ 
-    public function getUpdated()
+    public function getUpdatedAt()
     {
-        return $this->updated;
+        return $this->updatedAt;
     }
     
     /**
-     * @param  \DateTime  $updated
+     * @param  \DateTime  $updatedAt
      * @return  self
      */ 
-    public function setUpdated(\DateTime $updated)
+    public function setUpdatedAt(\DateTime $updatedAt)
     {
-        $this->updated = $updated;
+        $this->updatedAt = $updatedAt;
         
         return $this;
     }
