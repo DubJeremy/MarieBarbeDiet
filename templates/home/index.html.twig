@@ -22,8 +22,8 @@
                 Menu
             </h2>
             <div>
-                <a href="#">Détail des consultations</a>
-                <a href="#">Pour qui?</a>
+                <a href="#appointment">Détail des consultations</a>
+                <a href="#usercategories">Pour qui?</a>
                 <a href="#faq">Foire aux questions</a>
             </div>
         </div>
@@ -192,7 +192,7 @@
                     </p>
                 </div>
                 <div class="question">
-                    Qu'elle est votre poptique d'annulation des rendez-vous?
+                    Qu'elle est votre politique d'annulation des rendez-vous?
                     <p class="answer">
                         Si vous souhaitez annuler un RDV, merci de prévenir 48h à l’avance maximum pour un remboursement de votre consultation. 
                     </p>
@@ -228,7 +228,7 @@
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="csrf_token" value="{{csrf_token('review_delete_'~ review.id)}}">
                             <button>
-                                Supprimer    
+                                Supprimer  
                             </button>
                         </form> 
                     </div> 
@@ -237,8 +237,8 @@
             {% endfor %}
         </div>
         <div class="btn">
-        {% if app.user %}
-            <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
+        {% if app.user %}      
+                <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
         {% endif %}  
         </div>
     </section>

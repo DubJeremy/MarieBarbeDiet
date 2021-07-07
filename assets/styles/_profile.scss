@@ -2,9 +2,12 @@
 {
     @include flex;
     width: 100%;
+    background-image: url(../../public/images/backgroundProfil.jpg);
+    background-size: cover;
 
     #infouser
     {
+        margin-bottom: 3em;
         width: 100%;
         @include flex;
 
@@ -21,9 +24,9 @@
         {
             color: $purple;
             font-family: "amaticSC";
-            font-size: 3em;
+            font-size: 4em;
             text-align: center;
-            margin-bottom: 1em;
+            margin-bottom: 0.8em;
 
         }
 
@@ -40,7 +43,6 @@
             &:hover
             {
                 @include hover;
-                cursor: pointer;
             }
         } 
 
@@ -57,9 +59,87 @@
             
             &:hover
             {
+                cursor: pointer;
                 @include hover;
             }
             
         }
+    }
+
+    .recipe
+    {
+        width: 80%;
+        border: 1px solid black;
+        border-radius: 10px ;
+        @include flex($dir: row);
+        background-color: white;
+        margin-bottom: 3em;
+
+        >div:first-child
+        {
+            width: 50%;
+            height: 100%;
+            border-right: 1px solid $purple;
+            
+            h3 
+            {
+                font-family: "romanesco";
+                font-size: 3.5em;
+                font-weight: 400;
+                color: $orange;
+                text-align: center;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+            p 
+            {
+                width: 80%;
+                margin-left: 30px;
+                font-family: "playfair";
+                font-size: 1.3em;
+                margin-bottom: 2em;
+                line-height: 30px
+            }
+        }
+        >div:last-child
+        {
+            @include flex($just:flex-start);
+            width: 50%;
+            height: 100%;
+
+            img 
+            {
+                width: 600px;
+                height: 350px;
+                object-fit: cover;
+            }
+            >div
+            {
+                width: 600px;
+                @include flex($dir: row, $just: space-between, $align: flex-start);
+                margin-top: 1em;
+
+                >p
+                {
+                    font-family: "playfair";
+                    font-size: 1.3em;
+                    margin-bottom: 2em;
+                    line-height: 30px;
+                    width: 40%;
+                }
+                div 
+                {
+                    color: $orange;
+                    @include flex;
+                    
+                    p 
+                    {
+                        font-family: "amaticSC";
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+
     }
 }

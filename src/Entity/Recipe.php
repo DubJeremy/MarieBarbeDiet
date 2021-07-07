@@ -92,6 +92,11 @@ class Recipe
      */
     private $userCategory;
 
+    public function __toString()
+    {
+        return $this->preparationTime;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

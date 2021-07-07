@@ -16,21 +16,31 @@
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="csrf_token" value="{{csrf_token('user_delete_' ~ app.user.id)}}"> 
                     <button>
-                        Supprimer    
+                        Supprimer  profil  
                     </button>
                 </form>
             </p>
         </div>
-        {% for post in posts %}
-            <h3>{{post.title}}</h3>
-            <img src="{{asset('images/media/' ~ post.picture)}}" alt="{{asset('images/media/' ~ post.picture)}}">
-            <p>{{post.content}}</p>
-        {% endfor %}
 
         {% for recipe in recipes %}
-            <h3>{{recipe.title}}</h3>
-            <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="{{asset('images/media/' ~ recipe.picture)}}">
-            <p>{{recipe.recipe}}</p>
+            <div class="recipe">
+                <div>
+                    <h3>{{recipe.title}}</h3>
+                    <p>{{recipe.recipe}}</p>
+                </div>
+                <div>
+                    {% if recipe.picture != null %}
+                        <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="photo du plat">
+                    {% endif %}
+                    <div>
+                        <p>{{recipe.ingredient}}</p>
+                        <div>
+                            <p>{{recipe.difficulty}}</p>
+                            <p>temps  {{recipe.preparationTime|date("h:m")}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </section>
 {% endblock %}
