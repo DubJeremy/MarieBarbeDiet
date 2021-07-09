@@ -20,6 +20,7 @@
         {
             height:35%;
             width: 26%;
+            min-width: 440px;
             background-color: white;
             position: relative;
             left: -4em;
@@ -60,7 +61,7 @@
     }
     >div:nth-child(2)
     {
-        height: 16em;
+        height: auto;
         background-color: $greentea;
         @include flex($just: flex-start);
         @include borderbottom;
@@ -68,7 +69,7 @@
         h2 
         {
             font-family: "amaticSC";
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-top: 0.8em;
         }
         div
@@ -80,6 +81,7 @@
 
             a
             {
+                margin-bottom: 30px;
                 font-family: "playfairb";
                 font-size: 1.4em;
                 background-color: $darkgreen;
@@ -104,7 +106,7 @@
 // ----------------------------------------------------------------------
 #presentation
 {
-    height:54em;
+    height: auto;
     background-image: url(../../public/images/floral.png);
     background-attachment: fixed;
     @include flex($just:flex-start);
@@ -231,13 +233,14 @@
                     font-family: "playfair";
                     padding: 20px 20px;
                     
-                    li 
+                    P 
                     {
+
                         
                         list-style: initial;
                         margin-bottom: 15px;
                         margin-left: 20px;
-                        font-size: 1.2em;
+                        font-size: 1em;
                     }
                 }
             }

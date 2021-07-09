@@ -109,13 +109,14 @@
 
             img 
             {
-                width: 600px;
+                margin-top: 20px;
+                width: 90%;
                 height: 350px;
                 object-fit: cover;
             }
             >div
             {
-                width: 600px;
+                width: 100%;
                 @include flex($dir: row, $just: space-between, $align: flex-start);
                 margin-top: 1em;
 
@@ -124,6 +125,7 @@
                     font-family: "playfair";
                     font-size: 1.3em;
                     margin-bottom: 2em;
+                    margin-left: 10px;
                     line-height: 30px;
                     width: 40%;
                 }
@@ -136,6 +138,7 @@
                     {
                         font-family: "amaticSC";
                         font-size: 2em;
+                        margin-right: 10px;
                     }
                 }
             }

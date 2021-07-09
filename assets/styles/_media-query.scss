@@ -1,0 +1,125 @@
+@media screen and (max-width:1000px)
+{
+    #appointment
+    {
+        height: 51em;
+
+        >div
+        {
+            padding: 6em 30em;
+        }
+
+    }
+
+
+    header
+    {
+        nav
+        {
+            ul 
+            {
+                
+                a 
+                {
+                    display: none;
+                }
+            }
+        } 
+        #burger
+        {
+            display: block;
+            font-weight: 200;
+            font-size: 1.5em;
+
+            &:hover
+            {
+                cursor: pointer;
+            }
+        }
+    }
+  
+    #firstview 
+    {
+        
+        div:first-child 
+        {
+            height: 40em;
+            @include flex;
+
+            img 
+            {
+                margin-top: 8em;
+                height: 400px;
+            }
+
+            >div 
+            {
+
+                height: 500px;
+                width: 460px;
+                left: 6em;
+                top: -2em;
+                margin-bottom: 5em;
+
+                p 
+                {
+                    margin-bottom: 1em;
+                }
+                a 
+                {
+                    padding: 0.3em 0.7em;
+                }
+            }
+            
+        }
+        #presentation 
+        {
+            width: 100%;
+            p 
+            {
+                width: 100%;
+            }
+        }
+    }
+
+    #profile 
+    {
+        .recipe 
+        {
+            @include flex;
+
+            >div:first-child
+            {
+                width: 85%;
+                height: 100%;
+                border-right: 0px solid $purple;
+                text-align: center;
+            }
+            >div:last-child 
+            {
+                border-top: 1px solid $purple;           
+                width: 100%;
+
+                >div
+                {
+                    
+                }
+                img 
+                {
+                    width: 85%;
+                }
+            }
+        }     
+    } 
+    #usercategories > div .categorycard 
+    {
+        height: auto;
+    } 
+    #usercategories > div .categorycard 
+    {
+        flex-wrap: wrap;
+    } 
+}
+    @media all and (max-width: 650px)
+    {
+}
