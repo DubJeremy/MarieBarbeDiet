@@ -31,3 +31,21 @@
         transform: scale(1.3);
     }
 }
+
+.draw-border 
+{
+    @include btn-border-drawing( transparent, $darkgreen, 3px, bottom, right);
+}
+
+.btn 
+{
+    cursor: pointer;
+    line-height: 1.5;
+    // padding: 1em 2em;
+    letter-spacing: 0.05rem;
+    
+    &:focus 
+    { 
+        outline: 2px dotted $flashygreen; 
+    }
+}

@@ -14,7 +14,7 @@
                     Je vous aide à adapter votre alimentation grâce à un programme et un suivi personnalisé. 
                     Mon but : Vous permettre d’améliorer votre santé. 
                 </p>
-                <a href="#presentation">En savoir plus</a>
+                <a class="btn draw-border" href="#presentation">En savoir plus</a>
             </div>
         </div>
         <div>
@@ -22,9 +22,9 @@
                 Menu
             </h2>
             <div>
-                <a href="#appointment">Détail des consultations</a>
-                <a href="#usercategories">Pour qui?</a>
-                <a href="#faq">Foire aux questions</a>
+                <a class="btn draw-border" href="#appointment">Détail des consultations</a>
+                <a class="btn draw-border" href="#usercategories">Pour qui?</a>
+                <a class="btn draw-border" href="#faq">Foire aux questions</a>
             </div>
         </div>
     </section>
@@ -238,7 +238,7 @@
         </div>
         <div class="btn">
         {% if app.user %}      
-                <a href="{{path("app_home_createReview")}}">Laisser un avis</a>
+                <a class="btn draw-border" href="{{path("app_home_createReview")}}">Laisser un avis</a>
         {% endif %}  
         </div>
     </section>
