@@ -21,6 +21,7 @@ class ReviewType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Review::class,
+            'csrf_protection' => true,
         ]);
     }
 }
