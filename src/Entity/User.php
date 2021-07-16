@@ -107,7 +107,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $weight;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *  pattern="/[0-9]{10}/")
+     * @Assert\Length(min=10, max=10)
      */
     private $numberPhone;
 
@@ -420,12 +425,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     //     return $imc;
     // }
 
-    public function getNumberPhone(): ?int
+    public function getNumberPhone(): ?string
     {
         return $this->numberPhone;
     }
 
-    public function setNumberPhone(int $numberPhone): self
+    public function setNumberPhone(String $numberPhone): self
     {
         $this->numberPhone = $numberPhone;
 
