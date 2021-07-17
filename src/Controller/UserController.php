@@ -7,7 +7,6 @@ use App\Entity\UserCategory;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use App\Repository\RecipeRepository;
-use App\Repository\UserCategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,6 +25,22 @@ class UserController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    /**
+     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
+     */
+    public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
+    {
+        $posts = $repositoryPost->findAll();
+        $recipes = $repositoryRecipe->findByAll();
+
+        return $this->render('user/profile.html.twig', [
+            'posts' => $posts , 'recipes' => $recipes,
+        ]);
+    }
+}
+
+
 
     // /**
     //  * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
@@ -67,16 +82,3 @@ class UserController extends AbstractController
     // }
 
 
-    /**
-     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
-     */
-    public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
-    {
-        $posts = $repositoryPost->findAll();
-        $recipes = $repositoryRecipe->findByAll();
-
-        return $this->render('user/profile.html.twig', [
-            'posts' => $posts , 'recipes' => $recipes,
-        ]);
-    }
-}

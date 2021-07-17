@@ -5,9 +5,7 @@
 {% block body %}
     <section id= "profile">
         <div id="infouser">
-            {# {% if app.user.profilePicture != null %} #}
-                <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
-            {# {% endif %} #}
+            <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
             <h3>{{ app.user.firstname }}.</h3>
             <p>
                 <a href="{{path('app_edit',{'id': app.user.id})}}">Modifier profil</a>

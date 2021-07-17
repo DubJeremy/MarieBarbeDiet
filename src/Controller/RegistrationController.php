@@ -7,8 +7,12 @@ use App\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<< Updated upstream
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+=======
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
+>>>>>>> Stashed changes
 
 class RegistrationController extends AbstractController
 {
