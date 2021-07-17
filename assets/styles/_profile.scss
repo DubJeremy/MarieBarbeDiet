@@ -19,6 +19,8 @@
             object-fit: cover;
             border-radius: 50%;
             max-width: 100%;
+            border: 2px solid $darkgreen;
+
         }
         h3 
         {
@@ -46,7 +48,7 @@
             }
         } 
 
-        button
+        >button
         {
             font-family: "playfair";
             color: black;
