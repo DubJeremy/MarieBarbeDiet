@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <title>{% block title %}Welcome!{% endblock %}</title> 
+        <link rel="stylesheet" type="text/css" href="{{asset('lib/slick-1.8.1/slick/slick.css')}}"/>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -19,8 +19,9 @@
         {% block body %}{% endblock %}
         {% include "common/_footer.html.twig" %}
         <script src="{{asset('lib/jquery-3.6.0.min.js')}}"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script src="{{asset('js/script.js')}}"></script>
-        <script type="text/javascript">      
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="{{asset('lib/slick-1.8.1/slick/slick.min.js')}}"></script>
+        <script src="{{asset('js/script.js')}}"></script>      
 </body>
 </html>

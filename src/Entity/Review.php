@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReviewRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReviewRepository::class)
@@ -23,7 +24,8 @@ class Review
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
+     * @Assert\Length(max=100, maxMessage = "Désolé, votre texte est trop long. Le nombre de charactère maximum est 100.")
      */
     private $content;
 
@@ -32,6 +34,11 @@ class Review
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $author;
+
+    public function __toString()
+    {
+        return $this->author;
+    }
 
     public function getId(): ?int
     {

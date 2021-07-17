@@ -45,12 +45,30 @@ header
             li 
             {
                 margin-right: 4em;
-
+                
+                
             }
             a 
             {
                 color: $darkgreen;
                 font-size: 1.3em;
+                >img 
+                {
+                    width: 32px;
+                    height: 32px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    transition: 0.8s;
+                    border: 2px solid $darkgreen;
+                    
+                    &:hover 
+                    {
+                        border: 3px solid $darkgreen;
+                        
+                        transform: scale(1.3);
+                    }
+                }
+
             }
             
         }

@@ -191,7 +191,7 @@
                 <div class="question">
                     Qu'elles sont les avantages de la consultation à distance?
                     <p class="answer">
-                        Envoie d’un pen par mail au moment de la prise de RDV. Cette consultation est identique à celles en présentiel, sans déplacement. Seule différence : paiement avant la consultation.
+                        Envoie d’un lien par mail au moment de la validation de la prise de RDV. Cette consultation est identique à celles en présentiel, sans déplacement. Seule différence : paiement avant la consultation.
                     </p>
                 </div>
                 <div class="question">
@@ -237,9 +237,9 @@
             {% endfor %}
         </div>
         <div class="btn">
-        {% if app.user %}      
+        {# {% if reviews.author.id != app.user %}       #}
                 <a class="btn draw-border" href="{{path("app_home_createReview")}}">Laisser un avis</a>
-        {% endif %}  
+        {# {% endif %}   #}
         </div>
     </section>
     {# -------------------------------------------- #}
