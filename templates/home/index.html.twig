@@ -4,6 +4,9 @@
 
 {% block body %}
     <section id="firstview">
+        {% for message in app.flashes('success') %} 
+            {{ message }}
+        {% endfor %}
         <div>
             <img src="{{asset('images/fdp0.jpg')}}" alt="Photo de Marie Barbé">
             <div>
@@ -197,11 +200,11 @@
                         Si vous souhaitez annuler un RDV, merci de prévenir 48h à l’avance maximum pour un remboursement de votre consultation. 
                     </p>
                 </div>
-                <p>
-                    Pour toute autre questions prenez contact via le formulaire de <a href="{{path("app_contact_contact")}}">contact</a>,<a href="mailto:dieteticienne.marie@gmail.com"> mail</a> ou téléphone. 
-                    <span>07 49 64 54 52</span>
-                </p>
             </div>
+            <p>
+                Pour toute autre questions prenez contact via le formulaire de <a href="{{path("app_contact_contact")}}">contact</a>,<a href="mailto:dieteticienne.marie@gmail.com"> mail</a> ou téléphone: 
+                <span>07 49 64 54 52</span>
+            </p>
         </div>
     </section>
 
@@ -210,10 +213,7 @@
         <h2>
             Livre d'or
         </h2>
-        {% for message in app.flashes('success') %} 
-            {{ message }}
-        {% endfor %}
-        <div>
+        <div class="carousel">
             {% for review in reviews %}       
                 <div class="reviewcard">
                     <h3>{{ review.title }}</h3>
@@ -242,4 +242,5 @@
         {% endif %}  
         </div>
     </section>
+    {# -------------------------------------------- #}
 {% endblock %}
