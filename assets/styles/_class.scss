@@ -49,3 +49,21 @@
         outline: 2px dotted $flashygreen; 
     }
 }
+.message
+{
+    font-family: "playfairb";
+    font-size: 1.2em;
+    width: 40%;
+    height: 50px;
+    @include flex;
+    border-radius: 10px;
+    position: absolute;
+    top: 7.3em;
+    left: 30%;
+    transition: 1s;
+}
+.ok
+{
+    background-color: $greentea;
+    border: 3px solid $flashygreen;
+}

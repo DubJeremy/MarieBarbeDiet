@@ -3,11 +3,13 @@
 {% block title %}Marie Barbé Diet{% endblock %}
 
 {% block body %}
-    <section id="firstview">
-        {% for message in app.flashes('success') %} 
+    {% for message in app.flashes('success') %} 
+        <dialog class="message ok">
             {{ message }}
-        {% endfor %}
-        <div>
+        </dialog>
+    {% endfor %}
+    <section id="firstview">
+        <div class="presentation">
             <img src="{{asset('images/fdp0.jpg')}}" alt="Photo de Marie Barbé">
             <div>
                 <h2>
@@ -237,9 +239,10 @@
             {% endfor %}
         </div>
         <div class="btn">
+        {% if app.user %}
         {# {% if reviews.author.id != app.user %}       #}
                 <a class="btn draw-border" href="{{path("app_home_createReview")}}">Laisser un avis</a>
-        {# {% endif %}   #}
+        {% endif %}  
         </div>
     </section>
     {# -------------------------------------------- #}

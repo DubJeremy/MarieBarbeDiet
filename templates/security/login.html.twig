@@ -3,7 +3,13 @@
 {% block title %}Connexion!{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %} 
+        <dialog class="message ok">
+            {{ message }}
+        </dialog>
+    {% endfor %}
     <section class="form">
+        <div class="space"></div>
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
