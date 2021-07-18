@@ -42,6 +42,9 @@
             {{ form_row(form.profilePictureFile, {
                 label: 'Photo de Profil',
             }) }}
+            <div class="hidden">
+                {{ form_row(form.profilePicture) }}
+            </div>
             {{ form_row(form.password) }}
             <div class="check">
                 {{ form_row(form.agreeTerms, {

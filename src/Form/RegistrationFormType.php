@@ -39,6 +39,10 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('height')
             ->add('weight')
+            ->add('profilePicture', null,[
+                'required' => false,
+                'empty_data' => 'default.png',
+            ])
             ->add('profilePictureFile', VichFileType::class, [
                 'required' => false,
                 'allow_delete' => true,

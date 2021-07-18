@@ -44,6 +44,9 @@
             {{ form_row(registrationForm.profilePictureFile, {
                 label: 'Photo de Profil',
             }) }}
+            <div class="hidden">
+                {{ form_row(registrationForm.profilePicture) }}
+            </div>
             {{ form_row(registrationForm.password) }}
             <div class="check">
                 {{ form_row(registrationForm.agreeTerms, {
