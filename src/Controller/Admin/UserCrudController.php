@@ -44,7 +44,7 @@ class UserCrudController extends AbstractCrudController
                 TextField::new('firstname')->hideOnIndex(),
                 TextField::new('lastname')->hideOnIndex(),
                 TextField::new('email'),
-                AssociationField::new('userCategory')->hideOnForm()
+                AssociationField::new('userCategory')
                     ->setLabel('Catégorie'),
                 // DateTimeField::new('calculAge')
                 //     ->hideOnForm()

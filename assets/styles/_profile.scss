@@ -32,40 +32,19 @@
 
         }
 
-        a 
+        a, button
         {
             font-family: "playfair";
             color: black;
             font-size: 0.8em;
-            border: 1px solid black;
             background-color: transparent;
+            border: 1px solid transparent;
             padding: 0.3em 2em;
-            border-radius: 20px;
+            margin-top: 7px;
+            transition: 0.7s;
 
-            &:hover
-            {
-                @include hover;
-            }
         } 
 
-        >button
-        {
-            font-family: "playfair";
-            color: black;
-            font-size: 0.8em;
-            border: 1px solid black;
-            background-color: transparent;
-            padding: 0.3em 2em;
-            border-radius: 20px;
-            margin-top: 10px;
-            
-            &:hover
-            {
-                cursor: pointer;
-                @include hover;
-            }
-            
-        }
     }
 
     .recipe

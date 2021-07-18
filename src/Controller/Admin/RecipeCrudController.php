@@ -28,9 +28,8 @@ class RecipeCrudController extends AbstractCrudController
             ImageField::new('picture')
                 ->setBasePath('images/media')
                 ->onlyOnIndex()
-                ->setLabel('Photo de plat')
-                ,
-            TextField::new('pictureFile', "picture")
+                ->setLabel('Photo de plat'),
+            TextField::new('pictureFile')
                 ->setFormType(VichImageType::class)
                 ->hideOnIndex()
                 ->setLabel('Image')

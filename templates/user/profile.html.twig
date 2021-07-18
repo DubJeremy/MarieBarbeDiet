@@ -8,12 +8,12 @@
             <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
             <h3>{{ app.user.firstname }}.</h3>
             <p>
-                <a href="{{path('app_edit',{'id': app.user.id})}}">Modifier profil</a>
+                <a class="draw-border" href="{{path('app_edit',{'id': app.user.id})}}">Modifier profil</a>
     
                 <form action="{{path('app_security_delete',{'id': app.user.id})}}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="csrf_token" value="{{csrf_token('user_delete_' ~ app.user.id)}}"> 
-                    <button>
+                    <button class="draw-border" >
                         Supprimer  profil  
                     </button>
                 </form>

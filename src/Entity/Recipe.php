@@ -45,6 +45,8 @@ class Recipe
 
      /**
      * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
+     * @Assert\Image(
+     *     maxPixels = 1920,
      * 
      * @var File|null
      */
@@ -53,8 +55,6 @@ class Recipe
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
-     * @Assert\Image(
-     *     maxPixels = 1920,
      * )
      */
     private $updated;
