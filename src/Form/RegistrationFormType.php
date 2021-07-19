@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -50,6 +51,11 @@ class RegistrationFormType extends AbstractType
                 'download_uri' => true,
                 'download_label' => 'Télécharger votre Photo',
                 'asset_helper' => true,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '40000k',
+                    ])
+                ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

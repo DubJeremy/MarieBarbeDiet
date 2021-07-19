@@ -12,9 +12,11 @@
         $(this).children().slideToggle('slow');
         $(this).siblings().children().slideUp();
     });
-    
 
-    $(document).ready(function(){
+    // -----------------------------------------------
+    
+    $(document).ready(function()
+    {
         $('.carousel').slick({
             infinite: true,
             slidesToShow: 3,
@@ -24,8 +26,26 @@
             autoplay: true,
             autoplaySpeed: 2000,
             arrows: false,
-
-          });
+            
+        });
     });
+    
+    // -----------------------------------------------
 
+    var burger = $('header #burger');
+    var menu = $('header nav div:nth-child(3) ');
+    var cross = $('header #cross')
+    var menu = $('header nav ul li');
+
+    cross.on('click', function()
+      {
+        menu.slideToggle();
+        console.log('ok');
+      
+        heading.on('click', function()
+         {
+             menu.slideUp();
+         });
+    });
+    
 })(jQuery);
