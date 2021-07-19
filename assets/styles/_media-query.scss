@@ -1,4 +1,4 @@
-@media screen and (max-width:1000px)
+@media screen and (max-width:1100px)
 {
     #appointment
     {
@@ -10,7 +10,6 @@
         }
 
     }
-
 
     header
     {
@@ -41,7 +40,7 @@
     #firstview 
     {
         
-        div:first-child 
+        >div:first-child 
         {
             height: 40em;
             @include flex;
@@ -55,30 +54,35 @@
             >div 
             {
 
-                height: 500px;
+                height: 400px;
                 width: 460px;
                 left: 6em;
-                top: -2em;
+                top: -4em;
                 margin-bottom: 5em;
+                div
+                {   
+                    height: 100%;
+                    padding: 10px;
 
-                p 
-                {
-                    margin-bottom: 1em;
+                    p 
+                    {
+                        margin-bottom: 1em;
+                    }
+                    a 
+                    {
+                        padding: 0.3em 0.7em;
+                    }
                 }
-                a 
-                {
-                    padding: 0.3em 0.7em;
-                }
+                
             }
-            
         }
-        #presentation 
+    }
+    #presentation 
+    {
+        width: 100%;
+        p 
         {
-            width: 100%;
-            p 
-            {
-                width: 100%;
-            }
+            width: 80%;
         }
     }
 
@@ -113,7 +117,8 @@
     } 
     #usercategories > div .categorycard 
     {
-        height: auto;
+        min-height: 140px;
+        width: 80%;
     } 
     #usercategories > div .categorycard 
     {

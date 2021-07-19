@@ -15,27 +15,16 @@ class UserController extends AbstractController
 {
 
     /**
-     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
+     * @Route("/profile/", name="app_user_profile")
      */
-    public function profile(UserRepository $repository ): Response
+    public function profile(RecipeRepository $repositoryRecipe): Response
     {
-        $user = $repository->findAll();
+        $user = $this->getUser();
+        $recipes = $repositoryRecipe->findByCategory($user->getUserCategory());
 
         return $this->render('user/profile.html.twig', [
             'user' => $user,
-        ]);
-    }
-
-    /**
-     * @Route("/profile/{id}", name="app_user_profile", requirements={"id"="\d+"})
-     */
-    public function postRecipe(PostRepository $repositoryPost, RecipeRepository $repositoryRecipe ): Response
-    {
-        $posts = $repositoryPost->findAll();
-        $recipes = $repositoryRecipe->findByAll();
-
-        return $this->render('user/profile.html.twig', [
-            'posts' => $posts , 'recipes' => $recipes,
+            'recipes' =>$recipes
         ]);
     }
 }

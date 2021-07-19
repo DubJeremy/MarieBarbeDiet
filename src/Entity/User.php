@@ -83,8 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Vich\UploadableField(mapping="picture", fileNameProperty="profilePicture")
      * @var File|null
      * @Assert\Image(
-     *     maxWidth = 1920,
-     * )
+     *     maxWidth = 1920)
      */
     private $profilePictureFile;
 

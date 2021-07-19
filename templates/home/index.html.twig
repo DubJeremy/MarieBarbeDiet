@@ -12,14 +12,16 @@
         <div class="presentation">
             <img src="{{asset('images/fdp0.jpg')}}" alt="Photo de Marie Barbé">
             <div>
-                <h2>
-                    Hey, je suis Marie.
-                </h2>
-                <p>
-                    Je vous aide à adapter votre alimentation grâce à un programme et un suivi personnalisé. 
-                    Mon but : Vous permettre d’améliorer votre santé. 
-                </p>
-                <a class="btn draw-border" href="#presentation">En savoir plus</a>
+                <div>
+                    <h2>
+                        Hey, je suis Marie.
+                    </h2>
+                    <p>
+                        Je vous aide à adapter votre alimentation grâce à un programme et un suivi personnalisé. 
+                        Mon but : Vous permettre d’améliorer votre santé. 
+                    </p>
+                    <a class="btn draw-border" href="#presentation">En savoir plus</a>
+                </div>
             </div>
         </div>
         <div>
@@ -221,18 +223,18 @@
                     <h3>{{ review.title }}</h3>
                     <p>{{ review.content }}</p>
                     <h4>{{ review.author.firstname }}.</h4>
-                {% if app.user is same as(review.author) %}
+                {% if app.user is same as (review.author) %}
                     <div>
-                        <a href="{{path('app_home_editReview',{'id': review.id})}}">Modifier</a>
+                        <a class="draw-border " href="{{path('app_home_editReview',{'id': review.id})}}">Modifier</a>
                         
                         <form action="{{path('app_home_deleteReview',{'id': review.id})}}" 
                         method="POST">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="csrf_token" value="{{csrf_token('review_delete_'~ review.id)}}">
-                            <button>
+                            <button class="draw-border ">
                                 Supprimer  
                             </button>
-                        </form> 
+                        </form>
                     </div> 
                 {% endif %}    
                 </div>

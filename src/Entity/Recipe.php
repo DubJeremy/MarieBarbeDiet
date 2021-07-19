@@ -46,7 +46,7 @@ class Recipe
      /**
      * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
      * @Assert\Image(
-     *     maxPixels = 1920,
+     *     maxPixels = 1920,)
      * 
      * @var File|null
      */
