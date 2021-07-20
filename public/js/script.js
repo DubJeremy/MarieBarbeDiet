@@ -1,28 +1,31 @@
 (function($){
     
     var burger = $('header #burger');
-    var menu = $('header #menu ');
-    var cross = $('header #cross')
+    var menu = $('header nav >div:nth-child(2) ');
+    var cross = $('header nav #cross')
     var nav = $('header nav ul li');
 
     menu.hide();
+    cross.hide();
     
     burger.on('click', function()
         {
-            nav.slideToggle();
+            burger.slideToggle();
             menu.slideToggle();
+            cross.slideToggle();
             
-            nav.on('click', function()
-            {
-                menu.slideUp();
+            // nav.on('click', function()
+            // {
+            //     menu.slideUp();
 
-                nav.slideUp();
-            });
+            //     nav.slideUp();
+            // });
             
             cross.on('click', function()
             {
                 menu.slideUp();
-                nav.slideUp();
+                cross.slideUp();
+                burger.slideDown();
             });
         });
         
