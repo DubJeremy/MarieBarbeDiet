@@ -13,6 +13,7 @@
             burger.slideToggle();
             menu.slideToggle();
             cross.slideToggle();
+            nav.slideToggle();
             
             // nav.on('click', function()
             // {

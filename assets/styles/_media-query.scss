@@ -34,21 +34,30 @@
                 background-color: $greentea;
                 z-index: 4;
                 top: 0;
+                @include flex;
 
                 ul 
                 {
-                    @include flex($dir: column);
-                    height: 100vh;
+                    @include flex($dir: column, $just: space-between);
+                    margin-top: 300px;
+                    height: 40%;
                     width: 100%;
-                    position:fixed;
-                    top: 0;
+                    position:relative;
+                    z-index: 6;
+                    top: 0px;
+                    margin-top: 300px;
+
                     
                     
                     li 
                     {
-                        display: none;
-                        z-index: 5;  
-                        height: 1em;
+                        // display: none;
+                        position: relative;
+                        width: 100%;
+                        text-align: center;
+                        z-index: 6;  
+                        margin-right: 0px;
+                        height: 20px;
                         
                         a 
                         {
@@ -80,6 +89,7 @@
             font-size: 2em;
             z-index: 6;
             margin-right: 50px;
+            // position: fixed;
 
             &:hover
             {
