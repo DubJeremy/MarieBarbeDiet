@@ -31,7 +31,7 @@ class RecipePostRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('r')
             ->andWhere('r.userCategory = :val')
             ->setParameter('val', $category)
-            ->orderBy('r.id', 'ASC')
+            ->orderBy('r.id', 'DESC')
             // ->setMaxResults(10)
             ->getQuery()
             ->getResult()

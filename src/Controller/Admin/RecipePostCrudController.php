@@ -24,7 +24,14 @@ class RecipePostCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('titleR'),
+            TextField::new('title')
+                ->onlyOnIndex(),
+            TextField::new('titleR')
+                ->hideOnIndex()
+                ->setLabel('Titre Recette'),
+            TextField::new('titleP')
+                ->hideOnIndex()
+                ->setLabel('Titre Post'),
             ImageField::new('picture')
                 ->setBasePath('images/media')
                 ->onlyOnIndex()
@@ -35,7 +42,14 @@ class RecipePostCrudController extends AbstractCrudController
                 ->setLabel('Image')
                 ->setFormTypeOption('allow_delete',true),
             AssociationField::new('userCategory'),
-            TextareaField::new('recipe'),
+            TextareaField::new('contenu')
+                ->onlyOnIndex(),
+            TextareaField::new('content')
+                ->hideOnIndex()
+                ->setLabel('Contenu Post'),
+            TextareaField::new('recipe')
+                ->hideOnIndex()
+                ->setLabel('Recette'),
             TextareaField::new('ingredient'),
             AssociationField::new('difficulty'),
             TimeField::new('preparationTime'),

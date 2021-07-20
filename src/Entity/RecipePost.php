@@ -16,7 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
 use Symfony\Component\Validator\Constraints\EnableAutoMapping;
 
 /**
- * @ORM\Entity(repositoryClass=RecipeRepository::class)
+ * @ORM\Entity(repositoryClass=RecipePostRepository::class)
  * @Vich\Uploadable
 *@ORM\HasLifecycleCallbacks()
  */
@@ -302,5 +302,14 @@ class RecipePost
         $this->difficulty = $difficulty;
 
         return $this;
+    }
+
+    public function getTitle()
+    {
+        return $this->getTitleR().' '.$this->getTitleP();
+    }
+    public function getContenu()
+    {
+        return $this->getRecipe().' '.$this->getContent();
     }
 }

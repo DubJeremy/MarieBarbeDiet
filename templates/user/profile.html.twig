@@ -21,8 +21,8 @@
         </div>
 
         {% for recipePost in recipesPosts %}
-            <div class="recipePost">
-                {% if recipePost.titleR != null %}
+            {% if recipePost.titleR != null %}
+                <div class="recipe">
                     <div>
                         <h3>{{recipePost.titleR}}</h3>
                         {% if recipePost.picture != null %}
@@ -38,14 +38,16 @@
                     </div>
                     <div>
                         <h3>Préparation</h3>
-                        <p>{{recipePost.recipePost|nl2br }}</p>
+                        <p>{{recipePost.recipe|nl2br }}</p>
                     </div>
                 </div>
             {% endif %}
             {% if recipePost.titleP != null %}
-                <h3>{{recipePost.titleR}}</h3>
-                <p>{{recipePost.content|nl2br}}</p>
-                <h4>Marie.</h4>
+                <div class="post">
+                    <h3>{{recipePost.titleP}}</h3>
+                    <p>{{recipePost.content|nl2br}}</p>
+                    <h4>Marie.</h4>
+                </div>
             {% endif %}
         {% endfor %}
     </section>
