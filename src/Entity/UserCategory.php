@@ -26,10 +26,10 @@ class UserCategory
     private $userCategory;
 
     /**
-     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="userCategory")
+     * @ORM\OneToMany(targetEntity=RecipePost::class, mappedBy="userCategory")
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
-    private $recipe;
+    private $recipePost;
 
     public function __toString()
     {
@@ -54,9 +54,9 @@ class UserCategory
     }
 
     /**
-     * @return Collection|recipe[]
+     * @return Collection|recipePost[]
      */
-    public function getRecipe(): Collection
+    public function getRecipePost(): Collection
     {
         return $this->recipe;
     }

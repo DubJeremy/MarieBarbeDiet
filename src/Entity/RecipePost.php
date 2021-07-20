@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use App\Entity\User;
+use App\Entity\Difficulty;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\RecipeRepository;
+use App\Repository\RecipePostRepository;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,7 +20,7 @@ use Symfony\Component\Validator\Constraints\EnableAutoMapping;
  * @Vich\Uploadable
 *@ORM\HasLifecycleCallbacks()
  */
-class Recipe
+class RecipePost
 {
     /**
      * @ORM\Id
@@ -31,10 +32,10 @@ class Recipe
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $title;
+    private $titleR;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $recipe;
 
@@ -45,9 +46,6 @@ class Recipe
 
      /**
      * @Vich\UploadableField(mapping="picture", fileNameProperty="picture")
-     * @Assert\Image(
-     *     maxPixels = 1920,)
-     * 
      * @var File|null
      */
     private $pictureFile;
@@ -66,74 +64,84 @@ class Recipe
      */
     private $createdAt;
 
-    public function __serialize(): array
-    {
-        return [
-            'id'=> $this->id,
-            'title'=> $this->title,
-            'recipe'=> $this->recipe,
-            'picture'=> $this->picture,
-            
-        ];
-    }
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $preparationTime;
+    
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $ingredient;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity=UserCategory::class)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $userCategory;
 
-    public function __unserialize(array $serialized): User
-    {
-            $this->id = $serialized['id'];
-            $this->title= $serialized['title'];
-            $this->recipe= $serialized['recipe'];
-            $this->picture= $serialized['picture'];
-            
-            return $this;
-    }
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $titleP;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $content;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="recipePosts")
+     */
+    private $difficulty;
+    
+    
     /**
      * @ORM\PrePersist
      */
     public function setCreatedAtValue()
     {
         $this->createdAt = new \DateTime();
-    }
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $preparationTime;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Difficulty::class)
-     */
-    private $difficulty;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $ingredient;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=UserCategory::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $userCategory;
+    } 
 
     public function __toString()
     {
         return $this->preparationTime;
     }
+    
+    public function __serialize(): array
+    {
+        return [
+            'id'=> $this->id,
+            'titleR'=> $this->titleR,
+            'recipe'=> $this->recipe,
+            'picture'=> $this->picture,
+            
+        ];
+    }
 
+    public function __unserialize(array $serialized): RecipePost
+    {
+            $this->id = $serialized['id'];
+            $this->titleR= $serialized['titleR'];
+            $this->recipe= $serialized['recipe'];
+            $this->picture= $serialized['picture'];
+            
+            return $this;
+    }
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getTitle(): ?string
+    
+    public function getTitleR(): ?string
     {
-        return $this->title;
+        return $this->titleR;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitleR(?string $titleR): self
     {
-        $this->title = $title;
+        $this->titleR = $titleR;
 
         return $this;
     }
@@ -212,18 +220,6 @@ class Recipe
         return $this;
     }
 
-    public function getDifficulty(): ?Difficulty
-    {
-        return $this->difficulty;
-    }
-
-    public function setDifficulty(?Difficulty $difficulty): self
-    {
-        $this->difficulty = $difficulty;
-
-        return $this;
-    }
-
     public function getIngredient(): ?string
     {
         return $this->ingredient;
@@ -268,6 +264,42 @@ class Recipe
     public function setUserCategory(?UserCategory $userCategory): self
     {
         $this->userCategory = $userCategory;
+
+        return $this;
+    }
+
+    public function getTitleP(): ?string
+    {
+        return $this->titleP;
+    }
+
+    public function setTitleP(?string $titleP): self
+    {
+        $this->titleP = $titleP;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(?string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    public function getDifficulty(): ?Difficulty
+    {
+        return $this->difficulty;
+    }
+
+    public function setDifficulty(?Difficulty $difficulty): self
+    {
+        $this->difficulty = $difficulty;
 
         return $this;
     }

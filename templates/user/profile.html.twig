@@ -20,27 +20,32 @@
             </p>
         </div>
 
-        {% for recipe in recipes %}
-            <div class="recipe">
-                {% if recipe.title != null %}
+        {% for recipePost in recipesPosts %}
+            <div class="recipePost">
+                {% if recipePost.titleR != null %}
                     <div>
-                        <h3>{{recipe.title}}</h3>
-                        {% if recipe.picture != null %}
-                            <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="photo du plat">
+                        <h3>{{recipePost.titleR}}</h3>
+                        {% if recipePost.picture != null %}
+                            <img src="{{asset('images/media/' ~ recipePost.picture)}}" alt="photo du plat">
                         {% endif %}
                         <div>
-                            <p>{{recipe.ingredient|nl2br}}</p>
+                            <p>{{recipePost.ingredient|nl2br}}</p>
                             <div>
-                                <p>{{recipe.difficulty}}</p>
-                                <p>temps  {{recipe.preparationTime|date("h:m")}}</p>
+                                <p>{{recipePost.difficulty}}</p>
+                                <p>temps  {{recipePost.preparationTime|date("h:m")}}</p>
                             </div>
                         </div>
                     </div>
                     <div>
                         <h3>Préparation</h3>
-                        <p>{{recipe.recipe|nl2br }}</p>
+                        <p>{{recipePost.recipePost|nl2br }}</p>
                     </div>
                 </div>
+            {% endif %}
+            {% if recipePost.titleP != null %}
+                <h3>{{recipePost.titleR}}</h3>
+                <p>{{recipePost.content|nl2br}}</p>
+                <h4>Marie.</h4>
             {% endif %}
         {% endfor %}
     </section>

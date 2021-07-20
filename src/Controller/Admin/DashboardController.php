@@ -2,9 +2,8 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Post;
 use App\Entity\User;
-use App\Entity\Recipe;
+use App\Entity\RecipePost;
 use App\Entity\Review;
 use App\Entity\Booking;
 use App\Entity\Contact;
@@ -53,7 +52,8 @@ class DashboardController extends AbstractDashboardController
         // yield MenuItem::linkToCrud('Disponibilités', 'far fa-calendar-minus', TimeSlot::class);
         // yield MenuItem::linkToCrud('Rendez-vous', 'far fa-calendar-alt', Booking::class);
         // yield MenuItem::linkToCrud('Posts', 'far fa-sticky-note', Post::class);
-        yield MenuItem::linkToCrud('Recettes', 'fas fa-utensils', Recipe::class);
+        yield MenuItem::linkToCrud('Recettes', 'fas fa-utensils', RecipePost::class);
+        // yield MenuItem::linkToCrud('Posts', 'far fa-sticky-note', RecipePost::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-angle-right', Review::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-angle-right', UserCategory::class);
         yield MenuItem::linkToCrud('Niveau de difficulté', 'fas fa-angle-right', Difficulty::class);
