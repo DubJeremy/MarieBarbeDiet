@@ -22,23 +22,26 @@
 
         {% for recipe in recipes %}
             <div class="recipe">
-                <div>
-                    <h3>{{recipe.title}}</h3>
-                    <p>{{recipe.recipe}}</p>
-                </div>
-                <div>
-                    {% if recipe.picture != null %}
-                        <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="photo du plat">
-                    {% endif %}
+                {% if recipe.title != null %}
                     <div>
-                        <p>{{recipe.ingredient}}</p>
+                        <h3>{{recipe.title}}</h3>
+                        {% if recipe.picture != null %}
+                            <img src="{{asset('images/media/' ~ recipe.picture)}}" alt="photo du plat">
+                        {% endif %}
                         <div>
-                            <p>{{recipe.difficulty}}</p>
-                            <p>temps  {{recipe.preparationTime|date("h:m")}}</p>
+                            <p>{{recipe.ingredient|nl2br}}</p>
+                            <div>
+                                <p>{{recipe.difficulty}}</p>
+                                <p>temps  {{recipe.preparationTime|date("h:m")}}</p>
+                            </div>
                         </div>
                     </div>
+                    <div>
+                        <h3>Préparation</h3>
+                        <p>{{recipe.recipe|nl2br }}</p>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
     </section>
 {% endblock %}

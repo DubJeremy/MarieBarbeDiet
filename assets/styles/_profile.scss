@@ -44,7 +44,7 @@
             transition: 0.7s;
 
         } 
-
+        
     }
 
     .recipe
@@ -52,54 +52,37 @@
         width: 80%;
         border: 1px solid black;
         border-radius: 10px ;
-        @include flex($dir: row);
+        @include flex($dir: row, $align:flex-start);
         background-color: white;
         margin-bottom: 3em;
-
+        
         >div:first-child
         {
+            @include flex($just:flex-start);
             width: 50%;
             height: 100%;
-            border-right: 1px solid $purple;
             
             h3 
             {
-                font-family: "romanesco";
+                font-family: "amaticSC";
                 font-size: 3.5em;
                 font-weight: 400;
                 color: $orange;
                 text-align: center;
                 margin-bottom: 20px;
-                margin-top: 20px;
+                margin-top: 30px;
             }
-            p 
-            {
-                width: 80%;
-                margin-left: 30px;
-                font-family: "playfair";
-                font-size: 1.3em;
-                margin-bottom: 2em;
-                line-height: 30px
-            }
-        }
-        >div:last-child
-        {
-            @include flex($just:flex-start);
-            width: 50%;
-            height: 100%;
-
             img 
             {
-                margin-top: 20px;
                 width: 90%;
                 height: 350px;
                 object-fit: cover;
             }
             >div
             {
-                width: 100%;
+                width: 90%;
                 @include flex($dir: row, $just: space-between, $align: flex-start);
-                margin-top: 1em;
+                margin-top: 40px;
 
                 >p
                 {
@@ -122,6 +105,33 @@
                         margin-right: 10px;
                     }
                 }
+            }
+        }
+        >div:last-child
+        {
+            width: 50%;
+            height: 100%;
+            @include flex;
+            border-left: 1px solid $purple;
+            
+            h3 
+            {
+                margin-top: 40px;
+                font-family: "amaticSC";
+                font-size: 2.5em;
+                font-weight: 400;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            p 
+            {
+                width: 80%;        
+                font-family: "playfair";
+                font-size: 1.3em;
+                margin-bottom: 40px;
+                line-height: 30px;
+                text-align: center;
+                
             }
         }
 

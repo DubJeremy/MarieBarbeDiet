@@ -1,17 +1,39 @@
 (function($){
+    
+    var burger = $('header #burger');
+    var menu = $('header nav div:nth-child(3) ');
+    var cross = $('header #cross')
+    var nav = $('header nav ul li');
+    
+    burger.on('click', function()
+        {
+            menu.slideToggle();
+            console.log('ok');
+          
+            nav.on('click', function()
+            {
+                menu.slideUp();
+            });
 
-    
-    
-    var question = $('#faq > div > div .question');
-    var answer = $('#faq > div > div .answer');
-    
-    answer.hide();
-    
-    question.on('click', function()
-    {
-        $(this).children().slideToggle('slow');
-        $(this).siblings().children().slideUp();
-    });
+            cross.on('click', function()
+            {
+                menu.slideUp();
+            });
+        });
+        
+        // -----------------------------------------------
+        
+        var question = $('#faq > div > div .question');
+        var answer = $('#faq > div > div .answer');
+        
+        answer.hide();
+        
+        question.on('click', function()
+        {
+            console.log('ok');
+            $(this).children().slideToggle('slow');
+            $(this).siblings().children().slideUp();
+        });
 
     // -----------------------------------------------
     
@@ -30,22 +52,6 @@
         });
     });
     
-    // -----------------------------------------------
 
-    var burger = $('header #burger');
-    var menu = $('header nav div:nth-child(3) ');
-    var cross = $('header #cross')
-    var menu = $('header nav ul li');
-
-    cross.on('click', function()
-      {
-        menu.slideToggle();
-        console.log('ok');
-      
-        heading.on('click', function()
-         {
-             menu.slideUp();
-         });
-    });
     
 })(jQuery);

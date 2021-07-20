@@ -105,18 +105,10 @@
         {
             @include flex;
 
-            >div:first-child
+            >div:first-child 
             {
-                width: 85%;
-                height: 100%;
-                border-right: 0px solid $purple;
-                text-align: center;
-            }
-            >div:last-child 
-            {
-                border-top: 1px solid $purple;           
                 width: 100%;
-
+                
                 >div
                 {
                     
@@ -125,6 +117,14 @@
                 {
                     width: 85%;
                 }
+            }
+            >div:last-child
+            {
+                width: 100%;
+                height: 100%;
+                border-top: 1px solid $purple;           
+                border-right: 0px solid $purple;
+                text-align: center;
             }
         }     
     } 

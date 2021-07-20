@@ -15,7 +15,7 @@ class UserController extends AbstractController
 {
 
     /**
-     * @Route("/profile/", name="app_user_profile")
+     * @Route("/profile", name="app_user_profile")
      */
     public function profile(RecipeRepository $repositoryRecipe): Response
     {
