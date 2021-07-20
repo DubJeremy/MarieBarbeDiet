@@ -1,23 +1,28 @@
 (function($){
     
     var burger = $('header #burger');
-    var menu = $('header nav div:nth-child(3) ');
+    var menu = $('header #menu ');
     var cross = $('header #cross')
     var nav = $('header nav ul li');
+
+    menu.hide();
     
     burger.on('click', function()
         {
+            nav.slideToggle();
             menu.slideToggle();
-            console.log('ok');
-          
+            
             nav.on('click', function()
             {
                 menu.slideUp();
-            });
 
+                nav.slideUp();
+            });
+            
             cross.on('click', function()
             {
                 menu.slideUp();
+                nav.slideUp();
             });
         });
         
@@ -30,7 +35,6 @@
         
         question.on('click', function()
         {
-            console.log('ok');
             $(this).children().slideToggle('slow');
             $(this).siblings().children().slideUp();
         });
