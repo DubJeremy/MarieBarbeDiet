@@ -8,9 +8,8 @@
         {
             padding: 6em 30em;
         }
-
     }
-
+// ------------------------------------------
     header
     {
         nav
@@ -49,7 +48,7 @@
             }
         }
     }
-  
+//   ---------------------------------------
     #firstview 
     {
         
@@ -90,6 +89,7 @@
             }
         }
     }
+    // ----------------------------------------------
     #presentation 
     {
         width: 100%;
@@ -98,24 +98,52 @@
             width: 80%;
         }
     }
-
+    
+    // ----------------------------------------------
     #profile 
     {
+        #infouser
+        {
+            a, button
+            {
+                font-size: 1.1em;
+            }
+        }
         .recipe 
         {
             @include flex;
-
+            width: 85%;
+            
             >div:first-child 
             {
                 width: 100%;
                 
-                >div
+                h3 
                 {
-                    
+                    font-size: 5.4em;
                 }
                 img 
                 {
                     width: 85%;
+                }
+                >div
+                {
+                    width: 85%;
+                    margin-bottom: 40px;
+
+                    >p 
+                    {
+                        font-size: 2em;
+                        line-height: 50px;
+                        width: 50%;
+                    }
+                    div 
+                    {
+                        p 
+                        {
+                            font-size: 3em;
+                        }
+                    }
                 }
             }
             >div:last-child
@@ -125,19 +153,232 @@
                 border-top: 1px solid $purple;           
                 border-right: 0px solid $purple;
                 text-align: center;
+
+                h3 
+                {
+                    font-size: 3.2em;
+                    font-weight: 400;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                p 
+                {
+                    width: 80%;        
+                    font-family: "playfair";
+                    font-size: 1.5em;
+                    margin-bottom: 40px;
+                    line-height: 30px;
+                    text-align: center;
+                }
             }
-        }     
+        } 
+        .post
+        {
+            width: 85%;
+        }    
     } 
+    // ----------------------------------------------
     #usercategories > div .categorycard 
     {
         min-height: 140px;
         width: 80%;
     } 
+    // ----------------------------------------------
     #usercategories > div .categorycard 
     {
         flex-wrap: wrap;
     } 
 }
-    @media all and (max-width: 650px)
+
+
+@media screen and (max-width:1100px)
+{
+    #appointment
     {
+        height: 51em;
+
+        >div
+        {
+            padding: 6em 30em;
+        }
+    }
+// ------------------------------------------
+    header
+    {
+        nav
+        {
+            ul 
+            {
+                
+                li 
+                {
+                    display: none;
+                    position: absolute;
+                    z-index: 2;                
+                }
+            }
+        } 
+        #burger
+        {
+            display: block;
+            font-weight: 200;
+            font-size: 1.5em;
+
+            &:hover
+            {
+                cursor: pointer;
+            }
+        }
+        #cross
+        {
+            // display: block;
+            font-weight: 200;
+            font-size: 1.5em;
+
+            &:hover
+            {
+                cursor: pointer;
+            }
+        }
+    }
+//   ---------------------------------------
+    #firstview 
+    {
+        
+        >div:first-child 
+        {
+            height: 40em;
+            @include flex;
+
+            img 
+            {
+                margin-top: 8em;
+                height: 400px;
+            }
+
+            >div 
+            {
+
+                height: 400px;
+                width: 460px;
+                left: 6em;
+                top: -4em;
+                margin-bottom: 5em;
+                div
+                {   
+                    height: 100%;
+                    padding: 10px;
+
+                    p 
+                    {
+                        margin-bottom: 1em;
+                    }
+                    a 
+                    {
+                        padding: 0.3em 0.7em;
+                    }
+                }
+                
+            }
+        }
+    }
+    // ----------------------------------------------
+    #presentation 
+    {
+        width: 100%;
+        p 
+        {
+            width: 80%;
+        }
+    }
+    
+    // ----------------------------------------------
+    #profile 
+    {
+        #infouser
+        {
+            a, button
+            {
+                font-size: 1.1em;
+            }
+        }
+        .recipe 
+        {
+            @include flex;
+            width: 85%;
+            
+            >div:first-child 
+            {
+                width: 100%;
+                
+                h3 
+                {
+                    font-size: 5.4em;
+                }
+                img 
+                {
+                    width: 85%;
+                }
+                >div
+                {
+                    width: 85%;
+                    margin-bottom: 40px;
+
+                    >p 
+                    {
+                        font-size: 2em;
+                        line-height: 50px;
+                        width: 50%;
+                    }
+                    div 
+                    {
+                        p 
+                        {
+                            font-size: 3em;
+                        }
+                    }
+                }
+            }
+            >div:last-child
+            {
+                width: 100%;
+                height: 100%;
+                border-top: 1px solid $purple;           
+                border-right: 0px solid $purple;
+                text-align: center;
+
+                h3 
+                {
+                    font-size: 3.2em;
+                    font-weight: 400;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                p 
+                {
+                    width: 80%;        
+                    font-family: "playfair";
+                    font-size: 1.5em;
+                    margin-bottom: 40px;
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+        } 
+        .post
+        {
+            width: 85%;
+        }    
+    } 
+    // ----------------------------------------------
+    #usercategories > div .categorycard 
+    {
+        min-height: 140px;
+        width: 80%;
+    } 
+    // ----------------------------------------------
+    #usercategories > div .categorycard 
+    {
+        flex-wrap: wrap;
+    } 
 }
