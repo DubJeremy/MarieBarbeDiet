@@ -1,3 +1,10 @@
+@media screen and (min-width:2000px)
+{
+    section
+    {
+        min-height: 63.5vh;
+    }
+}
 @media screen and (max-width:1100px)
 {
     #appointment
@@ -231,9 +238,15 @@
     // ----------------------------------------------
 
     // ----------------------------------------------
-    #usercategories > div .categorycard 
+    #usercategories > div 
     {
-        flex-wrap: wrap;
+        padding: 3em 0em 0em 0em;
+        .categorycard
+        {
+            flex-wrap: wrap;
+            margin-right: 0px;
+            margin-left: 0px;
+        } 
     } 
     // ----------------------------------------------
     footer 
@@ -338,7 +351,6 @@
         {
             display: block;
             font-weight: 200;
-            font-size: 1.5em;
 
             &:hover
             {
@@ -365,6 +377,10 @@
         {
             @include flex($dir:column);
 
+            img 
+            {
+                height: 320px;
+            }
             >div 
             {
                 position: relative;
@@ -447,28 +463,14 @@
                 border-top: 1px solid $purple;           
                 border-right: 0px solid $purple;
                 text-align: center;
-
-                h3 
-                {
-                    
-                }
-                p 
-                {
-
-                }
             }
-        } 
-        .post
-        {
-
-        }    
+        }
     } 
     // ----------------------------------------------
-    #usercategories > div .categorycard 
+    #presentation p 
     {
-        
-    } 
-
+        width: 70%;
+    }
     // ----------------------------------------------
     #faq
     {
@@ -478,6 +480,11 @@
         >div
         {
             width: 90%;
+            
+            h3 
+            { 
+                text-shadow: 2px 1px 2px white;
+            }
             
             >div 
             {
@@ -491,6 +498,11 @@
                 .question
                 {
                     width: 90%;
+                }
+                .answer 
+                {
+                    padding-left: 2em;
+                    padding-right: 2em;
                 }
             }
             >p:last-child
