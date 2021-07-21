@@ -18,7 +18,7 @@
                     <a class='underline'href="{{path("app_contact_contact")}}">Contact</a>
                 </li>
                 {% if not app.user %}
-                <li>
+                <li class="log">
                     <a class='underline' href="{{path("app_registration_register")}}">Inscription</a> / <a  class='underline' href="{{path("app_security_login")}}">Connexion</a>
                 </li>
                 {% else %}            

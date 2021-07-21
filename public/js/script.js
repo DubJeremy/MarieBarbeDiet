@@ -6,25 +6,34 @@
     var nav = $('header nav ul li');
     var windowsSize = $(window).width();
 
-    if (windowsSize < 1100)
-    {
-        menu.hide();
-    }
+    // menu.hide();
+    
+    // if (windowsSize < 1100)
+    // {
+    //     console.log('ok');
+        
+    // }else
+    // {
+    //     nav.show();
+    // }
+
     cross.hide();
     
     burger.on('click', function()
         {
             burger.slideToggle('fast');
-            menu.slideToggle();
+            menu.css({"visibility": "visible"});
+            menu.slideDown();
             cross.slideToggle('slow');
             nav.slideDown();
             
-            // nav.on('click', function()
-            // {
-            //     menu.slideUp();
-
-            //     nav.slideUp();
-            // });
+            nav.on('click', function()
+            {
+               
+                menu.slideUp();
+                cross.slideUp('fast');
+                burger.slideDown('slow');
+            });
             
             cross.on('click', function()
             {
