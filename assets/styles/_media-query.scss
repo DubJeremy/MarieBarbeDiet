@@ -229,28 +229,85 @@
         }    
     } 
     // ----------------------------------------------
-    #usercategories > div .categorycard 
-    {
-        min-height: 140px;
-        width: 80%;
-    } 
+
     // ----------------------------------------------
     #usercategories > div .categorycard 
     {
         flex-wrap: wrap;
     } 
+    // ----------------------------------------------
+    footer 
+    {
+
+        >div:first-child
+        {
+            a 
+            {
+                margin-top: 1em;
+                margin-left: 1em;
+                margin-right: 1em;
+                font-size: 2em;
+                color: white;
+            }
+        }
+        >div:nth-child(2)
+        {
+            @include flex;
+            font-size: 1em;
+            
+            >div
+            {
+                text-align: center;
+                margin-bottom: 10px;
+            }  
+            >div:nth-child(2)
+            {  
+                img 
+                {
+                    margin-left: 7px;
+                    width: 28px;
+                    
+                }
+                a 
+                {
+                    color: white;
+                }
+            }
+        }  
+    }
 }
 // ---------------------------------
 
-@media screen and (max-width:650px)
+@media screen and (max-width:800px)
 {
     #appointment
     {
-        height: 51em;
+        height: 55em;
 
+        >img 
+        {
+            object-fit: cover;
+            height: 100%;
+        }
         >div
         {
-            padding: 6em 30em;
+            @include flex;
+            padding: 30px 0px 10px 0px;
+
+            >div
+            {
+
+                .appointmentcard
+                {
+                    text-align: center;
+                }
+            }
+
+            >div:nth-child(2)
+            {
+                position: static;
+                margin-top: 30px;
+            }
         }
     }
 // ------------------------------------------
@@ -424,8 +481,7 @@
     // ----------------------------------------------
     #usercategories > div .categorycard 
     {
-        min-height: 140px;
-        width: 80%;
+        // width: 80%;
     } 
     // ----------------------------------------------
     #usercategories > div .categorycard 

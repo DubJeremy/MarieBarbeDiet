@@ -69,7 +69,26 @@
             autoplay: true,
             autoplaySpeed: 2000,
             arrows: false,
-            
+            responsive: [
+                {
+                breakpoint: 1100,
+                settings: 
+                    {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    slidesToShow: 2,
+                    }
+                },
+                {
+                breakpoint: 900,
+                settings: 
+                    {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    slidesToShow: 1,
+                    }
+                },
+            ]        
         });
     });
     
