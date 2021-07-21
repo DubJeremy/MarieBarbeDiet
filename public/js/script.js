@@ -4,16 +4,20 @@
     var menu = $('header nav >div:nth-child(2) ');
     var cross = $('header nav #cross')
     var nav = $('header nav ul li');
+    var windowsSize = $(window).width();
 
-    menu.hide();
+    if (windowsSize < 1100)
+    {
+        menu.hide();
+    }
     cross.hide();
     
     burger.on('click', function()
         {
-            burger.slideToggle();
+            burger.slideToggle('fast');
             menu.slideToggle();
-            cross.slideToggle();
-            nav.slideToggle();
+            cross.slideToggle('slow');
+            nav.slideDown();
             
             // nav.on('click', function()
             // {
@@ -25,8 +29,8 @@
             cross.on('click', function()
             {
                 menu.slideUp();
-                cross.slideUp();
-                burger.slideDown();
+                cross.slideUp('fast');
+                burger.slideDown('slow');
             });
         });
         

@@ -29,6 +29,7 @@
             >div:nth-child(2)
             {
                 position: fixed;
+                display: none;
                 width: 100%;
                 height: 100vh;
                 background-color: $greentea;
@@ -39,13 +40,12 @@
                 ul 
                 {
                     @include flex($dir: column, $just: space-between);
-                    margin-top: 300px;
+                    // margin-top: 300px;
                     height: 40%;
                     width: 100%;
                     position:relative;
                     z-index: 6;
                     top: 0px;
-                    margin-top: 300px;
 
                     
                     
@@ -76,7 +76,7 @@
             position: absolute;
             top:42px;
             right: 50px;
-
+            
             &:hover
             {
                 cursor: pointer;
@@ -86,10 +86,12 @@
         {
             display: block;
             font-weight: 200;
-            font-size: 2em;
+            font-size: 2.5em;
             z-index: 6;
-            margin-right: 50px;
-            // position: fixed;
+            right: 50px;
+            top:37px;
+            // margin-right: 50px;
+            position: fixed;
 
             &:hover
             {
