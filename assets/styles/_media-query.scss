@@ -300,6 +300,14 @@
                 .appointmentcard
                 {
                     text-align: center;
+                    
+                    ul 
+                    {
+                        p 
+                        {
+                            font-size: 1.2em;
+                        }
+                    }
                 }
             }
 
@@ -355,35 +363,24 @@
         
         >div:first-child 
         {
-            height: 40em;
-            @include flex;
-
-            img 
-            {
-                margin-top: 8em;
-                height: 400px;
-            }
+            @include flex($dir:column);
 
             >div 
             {
+                position: relative;
+                left: 0em;
 
-                height: 400px;
-                width: 460px;
-                left: 6em;
-                top: -4em;
-                margin-bottom: 5em;
                 div
                 {   
-                    height: 100%;
-                    padding: 10px;
+
 
                     p 
                     {
-                        margin-bottom: 1em;
+                       
                     }
                     a 
                     {
-                        padding: 0.3em 0.7em;
+                        
                     }
                 }
                 
@@ -393,10 +390,10 @@
     // ----------------------------------------------
     #presentation 
     {
-        width: 100%;
+        
         p 
         {
-            width: 80%;
+            
         }
     }
     
@@ -412,31 +409,27 @@
         }
         .recipe 
         {
-            @include flex;
-            width: 85%;
+
             
             >div:first-child 
             {
-                width: 100%;
+
                 
                 h3 
                 {
-                    font-size: 5.4em;
+
                 }
                 img 
                 {
-                    width: 85%;
+
                 }
                 >div
                 {
-                    width: 85%;
-                    margin-bottom: 40px;
+
 
                     >p 
                     {
-                        font-size: 2em;
-                        line-height: 50px;
-                        width: 50%;
+
                     }
                     div 
                     {
@@ -457,35 +450,79 @@
 
                 h3 
                 {
-                    font-size: 3.2em;
-                    font-weight: 400;
-                    text-align: center;
-                    margin-bottom: 20px;
+                    
                 }
                 p 
                 {
-                    width: 80%;        
-                    font-family: "playfair";
-                    font-size: 1.5em;
-                    margin-bottom: 40px;
-                    line-height: 30px;
-                    text-align: center;
+
                 }
             }
         } 
         .post
         {
-            width: 85%;
+
         }    
     } 
     // ----------------------------------------------
     #usercategories > div .categorycard 
     {
-        // width: 80%;
+        
     } 
+
     // ----------------------------------------------
-    #usercategories > div .categorycard 
+    #faq
     {
-        flex-wrap: wrap;
-    } 
+        @include flex;
+        margin-top: 50px;
+        
+        >div
+        {
+            width: 90%;
+            
+            >div 
+            {
+                margin-left: 0em;
+                margin-right: 0em;
+                text-align: center;
+                font-family: "playfairb";
+                @include flex;
+                width: 90%;
+                
+                .question
+                {
+                    width: 90%;
+                }
+            }
+            >p:last-child
+            {
+                margin-top: 1em;
+                text-align: center;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: 1.2em;
+                text-shadow: 2px 1px 2px white;
+                
+            }
+            
+        }
+    }
+    // ----------------------------------------------
+    #review
+    {
+        margin-top: 5em;
+        margin-bottom: min(2em);
+        
+        h2 
+        {
+            font-family: "romanesco";
+            font-size: 4.5em;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-left: 0px;
+            color:#FFD700;
+            text-shadow: 2px 2px 4px rgb(82, 82, 82);
+        }   
+    }
+    // ----------------------------------------------
 }
