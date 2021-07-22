@@ -52,12 +52,13 @@
         width: 80%;
         border: 1px solid black;
         border-radius: 10px ;
-        @include flex($dir: row, $align:flex-start);
+        @include flex($dir: row, $just:baseline);
         background-color: white;
         margin-bottom: 3em;
         
         >div:first-child
         {
+            // border-right: 1px solid $purple;
             @include flex($just:flex-start);
             width: 50%;
             height: 100%;
@@ -84,12 +85,13 @@
                 width: 90%;
                 @include flex($dir: row, $just: space-between, $align: flex-start);
                 margin-top: 40px;
-
+                
                 >p
                 {
                     font-family: "playfair";
                     font-size: 1.3em;
                     margin-left: 10px;
+                    margin-bottom: 10px;
                     line-height: 30px;
                     width: 40%;
                 }
