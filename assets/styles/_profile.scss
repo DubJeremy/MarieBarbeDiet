@@ -2,6 +2,7 @@
 {
     @include flex;
     width: 100%;
+    min-height: 66vh;
     background-image: url(../../public/images/backgroundProfil.jpg);
     background-size: cover;
 

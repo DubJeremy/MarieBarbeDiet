@@ -244,8 +244,8 @@
         .categorycard
         {
             flex-wrap: wrap;
-            margin-right: 0px;
-            margin-left: 0px;
+            margin-right: 10px;
+            margin-left: 10px;
         } 
     } 
     // ----------------------------------------------
@@ -361,7 +361,7 @@
         {
             // display: block;
             font-weight: 200;
-            font-size: 1.5em;
+            font-size: 3em;
 
             &:hover
             {
@@ -445,13 +445,14 @@
 
                     >p 
                     {
-
+                        font-size: 1.6em;
+                        
                     }
                     div 
                     {
                         p 
                         {
-                            font-size: 2.5em;
+                            font-size: 2.3em;
                         }
                     }
                 }
@@ -536,5 +537,57 @@
             text-shadow: 2px 2px 4px rgb(82, 82, 82);
         }   
     }
+}
+// ----------------------------------------------
+@media screen and (max-width:500px)
+{
+    header nav > div:nth-child(2) ul li a 
+    {
+        font-size: 1.7em;
+    }
     // ----------------------------------------------
+    #profile 
+    {
+        #infouser
+        {
+            a, button
+            {
+                font-size: 2,5em;
+            }
+        }
+        .recipe 
+        {
+
+            
+            >div:first-child 
+            {
+
+                
+                h3 
+                {
+
+                }
+                img 
+                {
+
+                }
+                >div
+                {
+
+
+                    >p 
+                    {
+                        font-size: 1.8;
+                    }
+                    div 
+                    {
+                        p 
+                        {
+                            font-size: 2.3em;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
