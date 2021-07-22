@@ -62,27 +62,15 @@
                 </ul>
                 <div class="form"> 
                     {{form_start(BookingForm)}}
-                        {# {# {# {{ form_row(BookingForm.title, { #}
-                            {# label: 'Titre' #} 
-                        {# }) }} #}
+                        {{ form_row(BookingForm.bookingType, {
+                            label: 'Type de rendez-vous'
+                        }) }}
                         {{ form_row(BookingForm.start, {
                             label: 'Début'
                         }) }}
                         {{ form_row(BookingForm.end, {
                             label: 'Fin'
                         }) }} 
-                        {{ form_row(BookingForm.bookingType, {
-                            label: 'Type de rendez-vous'
-                        }) }}
-                        {{ form_row(BookingForm.backgroundColor, {
-                            label: 'Couleur'
-                        }) }}
-                        {{ form_row(BookingForm.borderColor, {
-                            label: 'Couleur bordure'
-                        }) }}
-                        {{ form_row(BookingForm.textColor, {
-                            label: 'Couleur du texte'
-                        }) }}
                     {{form_end(BookingForm)}} 
                 </div>
             </div>
@@ -112,8 +100,7 @@
                     list:     'list'
                 },
                 
-
-                
+                events: {{ data|raw }}
                 
             })
             calendar.render()

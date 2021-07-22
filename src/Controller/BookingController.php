@@ -22,6 +22,7 @@ class BookingController extends AbstractController
     $security, Request $request): Response
     {
         $events = $booking->findAll();
+        $bookings = []; 
 
         foreach($events as $event)
         {
@@ -37,21 +38,22 @@ class BookingController extends AbstractController
             ];
         }
 
-        $data1 = json_encode($bookings);
+        $data = json_encode($bookings);
+        dd($data);
         // -------------------------------------------------
-        $booking = new Booking();
-        $form = $this->createForm(BookingFormType::class, $booking);
+        $rdvs = new Booking();
+        $form = $this->createForm(BookingFormType::class, $rdvs);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $em->persist($booking);
+            $em->persist($rdvs);
             $em->flush();
             $this->addFlash('success', 'Votre demande à était enregistré.');
             return $this->redirectToRoute('app_booking_index');
         }
         return $this->render('booking/booking.html.twig', [
-            compact('data1'), 
+            compact('data'),
             'BookingForm'=> $form->createView(),
         ]);
     }

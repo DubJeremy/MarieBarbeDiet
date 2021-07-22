@@ -23,41 +23,47 @@
             width: 40%;
             @include flex;
             
-            li
+            ul 
             {
-                margin-bottom: 15px;
 
-                th 
+                li
                 {
-                    padding-right: 10px;
-                    padding-left: 60px;
+                    margin-bottom: 15px;
+                    
+                    th 
+                    {
+                        padding-right: 10px;
+                        padding-left: 60px;
+                    }
+                    .greentea
+                    {
+                        color: $greentea;
+                        font-size: 1.7em;
+                        text-shadow: 2px 2px 4px #000000;
+                        margin-right: 5Px;
+                    }
+                    .darkgreen
+                    {
+                        color: $darkgreen;
+                        font-size: 1.7em;
+                        text-shadow: 2px 2px 4px #000000;
+                        margin-right: 5px;
+                    }
+                    .purple
+                    {
+                        color: $purple;
+                        font-size: 1.7em;
+                        text-shadow: 2px 2px 4px #000000;
+                        margin-right: 5Px;
+                    }
                 }
-                .greentea
-                {
-                    color: $greentea;
-                    font-size: 1.7em;
-                    text-shadow: 2px 2px 4px #000000;
-                    margin-right: 5Px;
-                }
-                .darkgreen
-                {
-                    color: $darkgreen;
-                    font-size: 1.7em;
-                    text-shadow: 2px 2px 4px #000000;
-                    margin-right: 5px;
-                }
-                .purple
-                {
-                    color: $purple;
-                    font-size: 1.7em;
-                    text-shadow: 2px 2px 4px #000000;
-                    margin-right: 5Px;
-                }
-
+                    
             }
             >div
             {
                 background-color: $greentea;
+                border-radius: 8px;
+                border: 2px solid $darkgreen;
                 padding-top: 20px;
             }
         }
