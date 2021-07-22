@@ -12,7 +12,7 @@
         <div>
             <ul>
                 <li>
-                    <a  class='underline' href="{{path("app_home_index")}}">Acceuil</a>
+                    <a  class='underline' href="{{path("app_home_index")}}">Accueil</a>
                 </li>
                 <li>
                     <a class='underline'href="{{path("app_contact_contact")}}">Contact</a>
@@ -22,9 +22,9 @@
                     <a class='underline' href="{{path("app_registration_register")}}">Inscription</a> / <a  class='underline' href="{{path("app_security_login")}}">Connexion</a>
                 </li>
                 {% else %}            
-                    {# <li>
+                    <li>
                         <a  class='underline' href="{{path("app_booking_index")}}">Rdv</a>
-                    </li> #}
+                    </li>
                     <li>
                         <a href="{{path("app_user_profile")}}"><img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil"></a>
                     </li>

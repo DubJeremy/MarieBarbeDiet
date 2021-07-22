@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\BookingRepository;
+use Symfony\Component\Form\FormTypeInterface;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
@@ -16,7 +17,6 @@ class Booking
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=false)
