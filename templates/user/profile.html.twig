@@ -8,7 +8,7 @@
             <img src="{{asset('images/media/' ~ app.user.profilePicture)}}" alt="Photo de profil">
             <h3>{{ app.user.firstname }}.</h3>
             <p>
-                <a class="draw-border" href="{{path('app_edit',{'id': app.user.id})}}">Modifier profil</a>
+                <a class="draw-border" href="{{path('app_edit')}}">Modifier profil</a>
     
                 <form action="{{path('app_security_delete',{'id': app.user.id})}}" method="POST">
                     <input type="hidden" name="_method" value="DELETE">

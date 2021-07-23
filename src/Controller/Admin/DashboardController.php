@@ -49,7 +49,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fas fa-bars');
         yield MenuItem::linkToCrud('Patients', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Messages', 'far fa-comment', Contact::class);
-        // yield MenuItem::linkToCrud('Disponibilités', 'far fa-calendar-minus', TimeSlot::class);
         yield MenuItem::linkToCrud('Rendez-vous', 'far fa-calendar-alt', Booking::class);
         yield MenuItem::linkToCrud('Recettes / Posts', 'far fa-sticky-note', RecipePost::class);
         yield MenuItem::linkToCrud('Avis', 'fas fa-angle-right', Review::class);

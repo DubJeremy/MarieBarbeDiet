@@ -65,12 +65,30 @@
                         {{ form_row(BookingForm.bookingType, {
                             label: 'Type de rendez-vous'
                         }) }}
+                        <p>
+                            Veuillez prendre un rdv de 30min pour un suivi et 1h pour un 1er rdv ou un bilan.
+                        </p>
                         {{ form_row(BookingForm.start, {
                             label: 'Début'
                         }) }}
                         {{ form_row(BookingForm.end, {
                             label: 'Fin'
                         }) }} 
+                        {{ form_row(BookingForm.applicationChoice, {
+                            label: 'Application de visio'
+                        }) }} 
+                        {{ form_row(BookingForm.message, {
+                            label: 'Demande ou une question spécifique'
+                        }) }} 
+                        <div class="hidden">
+                            {{ form_row(BookingForm.backgroundColor)}}
+                            {{ form_row(BookingForm.borderColor)}} 
+                            {{ form_row(BookingForm.textColor)}} 
+                            {{ form_row(BookingForm.author)}} 
+                        </div>
+                        <button>
+                            Envoyer
+                        </button>
                     {{form_end(BookingForm)}} 
                 </div>
             </div>

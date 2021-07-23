@@ -39,7 +39,7 @@ class BookingController extends AbstractController
         }
 
         $data = json_encode($bookings);
-        dd($data);
+
         // -------------------------------------------------
         $rdvs = new Booking();
         $form = $this->createForm(BookingFormType::class, $rdvs);
@@ -52,31 +52,10 @@ class BookingController extends AbstractController
             $this->addFlash('success', 'Votre demande à était enregistré.');
             return $this->redirectToRoute('app_booking_index');
         }
+
         return $this->render('booking/booking.html.twig', [
-            compact('data'),
+            'data' => $data,
             'BookingForm'=> $form->createView(),
         ]);
     }
-
-    // /**
-    // *@Route("/booking", name="app_booking_create", methods="GET|POST")
-    // */
-    // public function createBooking(EntityManagerInterface $em, Security 
-    // $security, Request $request)
-    // {
-    //     $booking = new Booking();
-    //     $form = $this->createForm(Booking::class, $booking);
-    //     $form->handleRequest($request);
-
-    //     if($form->isSubmitted() && $form->isValid())
-    //     {
-    //         $em->persist($booking);
-    //         $em->flush();
-    //         $this->addFlash('success', 'Votre demande à était enregistré.');
-    //         return $this->redirectToRoute('app_booking_index');
-    //     }
-    //     return $this->render('booking/booking.html.twig', [
-    //     'BookingForm'=> $form->createView(),
-    //     ]);
-    // }
 }

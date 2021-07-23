@@ -43,16 +43,18 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/edit", name="app_edit", requirements={"id"="\d+"})
+     * @Route("/user/edit", name="app_edit")
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request): Response
     {
+        $user = $this->getUser();
+
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_user_profile', ['id' => $user->getId()]);
+            return $this->redirectToRoute('app_user_profile');
         }
 
         return $this->render('security/edit.html.twig', [
@@ -63,6 +65,7 @@ class RegistrationController extends AbstractController
         return $this->render('common/error.html.twig', [
             'error' => 401,
             'message' => 'Unauthorized access',
+            'user' => $user,
         ]);
     }
 }
