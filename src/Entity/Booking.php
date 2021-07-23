@@ -114,7 +114,7 @@ class Booking
      */
     public function setBorderColorValue(): self
     {
-        $this->borderColor = "#9C7A97";
+        $this->borderColor = "#000000";
 
         return $this;
     }
@@ -138,7 +138,7 @@ class Booking
      */
     public function setTextColorValue(): self
     {
-        $this->textColor = "#525051";
+        $this->textColor = "#000000";
 
         return $this;
     }
