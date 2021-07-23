@@ -61,8 +61,7 @@ class HomeController extends AbstractController
     /**
     *@Route("/{id}/edit",name="app_home_editReview", methods="GET|POST", requirements={"id"="\d+"})
     */
-    public function editReview(EntityManagerInterface $em, Security 
-    $security, Request $request, Review $review)
+    public function editReview(EntityManagerInterface $em, Request $request, Review $review)
     {
         $form = $this->createForm(ReviewType::class, $review);
         
@@ -70,7 +69,7 @@ class HomeController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid())
         {
-            $user = $security->getUser();
+            $user = $this->getUser();
             $review->setAuthor($user);
             $em->flush();
             

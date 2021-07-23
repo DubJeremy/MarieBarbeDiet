@@ -20,11 +20,11 @@ class BookingFormType extends AbstractType
             ])
             ->add('borderColor', null ,[
                 'required' => false,
-                'empty_data' => '#303633',
+                'empty_data' => '#9C7A97',
             ])
             ->add('textColor', null ,[
                 'required' => false,
-                'empty_data' => 'white',
+                'empty_data' => '#ffffff',
             ])
             ->add('start', DateTimeType::class, [
                 'date_widget' => 'single_text'

@@ -47,6 +47,8 @@ class BookingController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
+            $user= $this->getUser();
+            $rdvs->setAuthor($user);
             $em->persist($rdvs);
             $em->flush();
             $this->addFlash('success', 'Votre demande à était enregistré.');

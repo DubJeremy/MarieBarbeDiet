@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormTypeInterface;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
+* @ORM\HasLifecycleCallbacks()
  */
 class Booking
 {
@@ -106,6 +107,18 @@ class Booking
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     *
+     * @return self
+     */
+    public function setBorderColorValue(): self
+    {
+        $this->borderColor = "#9C7A97";
+
+        return $this;
+    }
+
     public function getTextColor(): ?string
     {
         return $this->textColor;
@@ -114,6 +127,18 @@ class Booking
     public function setTextColor(string $textColor): self
     {
         $this->textColor = $textColor;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     *
+     * @return self
+     */
+    public function setTextColorValue(): self
+    {
+        $this->textColor = "#525051";
 
         return $this;
     }
