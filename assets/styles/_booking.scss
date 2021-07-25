@@ -14,6 +14,7 @@
     >div
     {
         @include flex($dir:row, $align: flex-start);
+        flex-wrap: wrap;
         margin-bottom: 40px;
         width: 100%;
         
@@ -21,6 +22,7 @@
         {
             font-family: "playfair";
             width: 40%;
+            min-width: 400px;
             @include flex;
             
             ul 
@@ -37,7 +39,7 @@
                     }
                     .greentea
                     {
-                        color: $greentea;
+                        color: white;
                         font-size: 1.7em;
                         text-shadow: 2px 2px 4px #000000;
                         margin-right: 5Px;
@@ -64,8 +66,47 @@
                 background-color: $greentea;
                 border-radius: 8px;
                 border: 2px solid $darkgreen;
-                padding-top: 20px;
                 text-align: center;
+                min-width: 340px;
+                
+                >form 
+                {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    
+                    p 
+                    {
+                        max-width: 90%;
+                        margin-bottom: 10px;
+                    }
+                    >button 
+                    {
+                        color: black;
+                    }
+                    >div
+                    {
+                        margin-bottom: 10px;
+                        
+                        label 
+                        {
+                            margin-right: 0px
+                        }
+                        >div
+                        {
+                            @include flex;
+
+                            >input 
+                            {
+                                height: 38px;
+                                width: 200px;
+                                @include flex($dir:row);
+                                
+                            }
+
+                        }
+                    }
+                    
+                }
             }
         }
         >div:last-child
