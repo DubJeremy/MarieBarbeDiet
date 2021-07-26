@@ -144,4 +144,14 @@
     {
         height: 3em;
     }
+    >a 
+    {
+        color: black;
+        font-family: "playfair";
+
+        &:hover
+        {
+            color: $purple;
+        }
+    }
 }
