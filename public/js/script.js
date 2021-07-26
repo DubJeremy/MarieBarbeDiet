@@ -4,18 +4,7 @@
     var menu = $('header nav >div:nth-child(2) ');
     var cross = $('header nav #cross')
     var nav = $('header nav ul li');
-    var windowsSize = $(window).width();
-
-    // menu.hide();
-    
-    // if (windowsSize < 1100)
-    // {
-    //     console.log('ok');
-        
-    // }else
-    // {
-    //     nav.show();
-    // }
+    // var windowsSize = $(window).width();
 
     cross.hide();
     
@@ -91,6 +80,5 @@
             ]        
         });
     });
-    // -----------------------------------------------
     
 })(jQuery);

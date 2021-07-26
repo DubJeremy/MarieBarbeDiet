@@ -34,7 +34,7 @@ class DashboardController extends AbstractDashboardController
         if ('jane' === $this->getUser()->getEmail()) {
             return $this->redirect('...');
         }
-
+        
         return $this->render('some/path/my-dashboard.html.twig');
     }
 

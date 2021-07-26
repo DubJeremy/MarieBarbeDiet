@@ -18,8 +18,7 @@ class BookingController extends AbstractController
     /**
      * @Route("/booking", name="app_booking_index")
      */
-    public function index(BookingRepository $booking, EntityManagerInterface $em, Security 
-    $security, Request $request): Response
+    public function index(BookingRepository $booking, EntityManagerInterface $em, Request $request): Response
     {
         $events = $booking->findAll();
         $bookings = []; 
@@ -30,8 +29,6 @@ class BookingController extends AbstractController
                 'id' => $event->getId(),
                 'start' => $event->getStart()->format('Y-m-d H:i:s'),
                 'end' => $event->getEnd()->format('Y-m-d H:i:s'),
-                // 'title' => $event->getTitle(),
-                // 'description' => $event->getDescription(),
                 'backgroundColor' => $event->getBackgroundColor(),
                 'borderColor' => $event->getBorderColor(),
                 'textColor' => $event->getTextColor(),
