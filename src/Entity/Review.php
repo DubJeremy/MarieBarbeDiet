@@ -24,8 +24,8 @@ class Review
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100, maxMessage = "Désolé, votre texte est trop long. Le nombre de charactère maximum est 100.")
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=100, maxMessage = "Désolé, votre texte est trop long. Le nombre de caractère maximum est 255.")
      */
     private $content;
 
