@@ -551,6 +551,20 @@
             text-shadow: 2px 2px 4px rgb(82, 82, 82);
         }   
     }
+    // ----------------------------------------------
+    .message {
+        font-family: "playfairb";
+        font-size: 1.2em;
+        width: 80%;
+        height: 50px;
+        left:10%;
+        
+    }
+    #review > div:nth-child(2) .reviewcard > div > a, #review > div:nth-child(2) .reviewcard > div
+    {
+        @include flex;
+    }
+
 }
 // ----------------------------------------------
 @media screen and (max-width:600px)
@@ -650,7 +664,7 @@
     }
     #firstview > div:first-child > div {
         height: 400px;
-        width: 160px;
+        width: 300px;
         left: 0em;
         top: -4em;
     }
@@ -667,19 +681,19 @@
 
     #appointment > div > div 
     {
-        width: 350px;
-        min-width: 350px;
-        height: 420px;
+        width: 90%;
+        min-width: 250px;
+        height: auto;
     }
 
     #appointment > div > div .appointmentcard
     {
-        height: 395px;
+        height: auto;
     }
 
     #faq > div 
     {
-        margin-top: 20px;
+        margin-top: 200px;
     }
     #faq > div h3 
     {
@@ -696,4 +710,10 @@
     {
         text-align: center;
     }
+
+    #review > div:nth-child(2)
+    {
+        height: 350px;
+    }
+    
 }
