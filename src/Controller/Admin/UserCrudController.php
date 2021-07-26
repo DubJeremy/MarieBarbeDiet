@@ -44,14 +44,11 @@ class UserCrudController extends AbstractCrudController
                 TextField::new('firstname')->hideOnIndex(),
                 TextField::new('lastname')->hideOnIndex(),
                 TextField::new('email'),
+                TextField::new('numberPhone'),
                 AssociationField::new('userCategory')
                     ->setLabel('Catégorie'),
-                // DateTimeField::new('calculAge')
-                //     ->hideOnForm()
-                //     ->setLabel('Age'),
                 DateField::new('age')
                     ->setLabel('Date de Naissance'),
-                // TextField::new('imc'),
                 TextField::new('height')
                     ->setLabel('Taille'),
                 TextField::new('weight')
