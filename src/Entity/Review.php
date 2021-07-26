@@ -30,7 +30,7 @@ class Review
     private $content;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class)
+     * @ORM\ManyToOne(targetEntity=User::class)
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $author;

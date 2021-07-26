@@ -409,22 +409,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->getFirstName().' '.$this->getLastName();
     }
 
-    // public function calculAge()
-    // {
-    //     $age = 'app.user.age';
-    //     $today = date("m-d-Y") ;
-    //     $diff = date_diff(date_create($age), date_create($today));
-    //     return $this->$diff;
-    // }
-
-    // public function imc()
-    // {
-    //     $weightUser = $this->getWeight();
-    //     $heightUser = $this->getHeight();
-    //     $imc = $weightUser / ($heightUser * $heightUser);
-    //     return $imc;
-    // }
-
     public function getNumberPhone(): ?string
     {
         return $this->numberPhone;

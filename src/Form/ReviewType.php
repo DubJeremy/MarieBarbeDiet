@@ -6,6 +6,7 @@ use App\Entity\Review;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ReviewType extends AbstractType
 {
@@ -13,7 +14,7 @@ class ReviewType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
+            ->add('content', TextareaType::class)
         ;
     }
 
