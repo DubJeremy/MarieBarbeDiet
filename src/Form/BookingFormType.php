@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class BookingFormType extends AbstractType
 {
@@ -35,7 +36,7 @@ class BookingFormType extends AbstractType
             ->add('author')
             ->add('bookingType')
             ->add('applicationChoice')
-            ->add('message')
+            ->add('message', TextareaType::class)
         ;
     }
 

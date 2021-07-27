@@ -656,6 +656,11 @@
             }
         }
     }
+
+    .fc table 
+    {
+        font-size: 0.8em !important;
+    }
     // ----------------------------------------------
     #firstview > div:first-child img 
     {
@@ -663,14 +668,23 @@
         margin-top: 6em;
     }
     #firstview > div:first-child > div {
-        height: 400px;
+        height: auto;
         width: 300px;
+        min-width: 300px;
         left: 0em;
         top: -4em;
     }
     #firstview > div:first-child 
     {
         height: 35em;
+    }
+    #firstview > div:first-child > div p 
+    {
+        margin-top: 0.4em;
+        width: 100%;
+        text-align: center;
+        margin-left: 0%;
+        margin-right: 0%;
     }
 
     #usercategories > div .categorycard 

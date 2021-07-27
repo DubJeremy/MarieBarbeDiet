@@ -32,7 +32,7 @@ class RecipePostRepository extends ServiceEntityRepository
             ->andWhere('r.userCategory = :val')
             ->setParameter('val', $category)
             ->orderBy('r.id', 'DESC')
-            // ->setMaxResults(10)
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
