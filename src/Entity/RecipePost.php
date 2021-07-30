@@ -75,7 +75,7 @@ class RecipePost
     private $ingredient;
     
     /**
-     * @ORM\ManyToOne(targetEntity=UserCategory::class)
+     * @ORM\ManyToOne(targetEntity=UserCategory::class, inversedBy="recipePost")
      * @ORM\JoinColumn(nullable=true)
      */
     private $userCategory;
