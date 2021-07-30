@@ -20,20 +20,55 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword(
-                $passwordHasher->hashPassword(
-                    $user,
-                    $form->get('password')->getData()
-                )
-            );
-            $user->setRoles(['ROLE_USER']);
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-            $this->addFlash('success', 'Votre compte à bien était créé. Veuillez vous connecter.');
-            return $this->redirectToRoute('app_security_login');
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+            if(empty($_Post['recaptcha-response']))
+            {
+                return $this->redirectToRoute('app_registration_register');
+            }else 
+            {
+                $url = " https://www.google.com/recaptcha/api/siteverify?secret=6LdQR80bAAAAAOrVDXn9syrA9Pt4d2px3PLxjuhj&response={$_POST['recaptcha-response']}";
+                
+                if(function_exists('curl_version'))
+                {
+                    $curl = curl_init($url);
+                    curl_setopt($curl, CURLOPT_HEADER, false);
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($curl, CURLOPT_TIMEOUT, 1);
+                    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                    $response = curl_exec($curl);
+                }else
+                {
+                    $response = file_get_contents($url);
+                }
+                
+                if (empty($response) || is_null($response))
+                {
+                    return $this->redirectToRoute('app_registration_register');
+                }else
+                {
+                    $data = json_decode($response);
+                    if($data->success)
+                    {
+                        $user->setPassword(
+                            $passwordHasher->hashPassword(
+                                $user,
+                                $form->get('password')->getData()
+                                )
+                            );
+                            $user->setRoles(['ROLE_USER']);
+                            
+                            $entityManager = $this->getDoctrine()->getManager();
+                            $entityManager->persist($user);
+                            $entityManager->flush();
+                            $this->addFlash('success', 'Votre compte à bien était créé. Veuillez vous connecter.');
+                            return $this->redirectToRoute('app_security_login');
+                    }else
+                    {
+                        return $this->redirectToRoute('app_registration_register');
+                    }
+                }
+            }
         }
 
         return $this->render('registration/register.html.twig', [

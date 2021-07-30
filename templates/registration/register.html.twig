@@ -47,12 +47,26 @@
                 {{ form_row(registrationForm.profilePicture) }}
             </div>
             {{ form_row(registrationForm.password) }}
-            <div class="check">
+            {# <div class="check">
                 {{ form_row(registrationForm.agreeTerms, {
                     label: 'Accepter les conditions d\'utilisation'
                 }) }}
-            </div>
-            <button type="submit">S'inscrire</button>
+            </div> #}
+            <input type="hidden" id="recaptchaResponse" name="recaptcha-response">
+            <button type="submit">
+                S'inscrire
+            </button>
         {{ form_end(registrationForm) }}
     </section>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdQR80bAAAAAOBDrQAK9o4FTFuDqcTBzIVGWuIG"></script>
+    <script>
+        function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdQR80bAAAAAOBDrQAK9o4FTFuDqcTBzIVGWuIG', {action: 'submit'}).then(function(token) {
+                document.getElementById("recaptchaResponse").value = token
+            });
+        });
+        }
+    </script>
 {% endblock %}
